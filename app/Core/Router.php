@@ -23,6 +23,19 @@ final class Router
             $requestPath = substr($requestPath, strlen($basePath)) ?: '/';
         }
 
+        // Mendukung front controller lokal dan rewrite Vercel ke api/index.php.
+        foreach (['/api/index.php', '/public/index.php', '/index.php'] as $frontController) {
+            if ($requestPath === $frontController) {
+                $requestPath = '/';
+                break;
+            }
+
+            if (str_starts_with($requestPath, $frontController . '/')) {
+                $requestPath = substr($requestPath, strlen($frontController)) ?: '/';
+                break;
+            }
+        }
+
         $path = $this->normalizePath($requestPath);
         $handler = $this->routes[strtoupper($method)][$path] ?? null;
 

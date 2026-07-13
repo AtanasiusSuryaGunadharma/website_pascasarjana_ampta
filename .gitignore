@@ -1,5 +1,7 @@
 /vendor/
 /.env
+/.vercel/
+/pascasarjana_ampta.sql
 
 /storage/logs/*
 !/storage/logs/.gitkeep
