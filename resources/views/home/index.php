@@ -228,8 +228,8 @@ require BASE_PATH . '/resources/views/layouts/navbar.php';
                 <article class="outcome-card outcome-card-feature">
                     <div class="outcome-feature-media">
                         <img
-                            src="<?= htmlspecialchars($appConfig['url']) ?>/assets/images/gambar_kampus1.jpg"
-                            alt="Visual alumni Pascasarjana STP AMPTA"
+                            src="<?= htmlspecialchars($appConfig['url']) ?>/assets/images/260428110348698.jpeg"
+                            alt="Foto dummy alumni Pascasarjana STP AMPTA"
                             class="outcome-feature-image"
                         >
                         <span class="outcome-media-chip">Testimoni Alumni</span>
@@ -248,7 +248,11 @@ require BASE_PATH . '/resources/views/layouts/navbar.php';
                             <span>Alumni Pascasarjana STP AMPTA • Destination Development Associate</span>
                         </div>
 
-                        <a href="#site-footer" class="outcome-link">Cerita lengkap akan hadir di halaman alumni</a>
+                        <div class="outcome-actions">
+                            <a href="<?= htmlspecialchars($appConfig['url']) ?>/alumni" class="outcome-read-more">
+                                Read More <span aria-hidden="true">&rarr;</span>
+                            </a>
+                        </div>
                     </div>
                 </article>
 
@@ -270,6 +274,12 @@ require BASE_PATH . '/resources/views/layouts/navbar.php';
                             <span></span>
                             <span></span>
                         </div>
+                    </div>
+
+                    <div class="outcome-actions outcome-actions-publication">
+                        <a href="<?= htmlspecialchars($appConfig['url']) ?>/publikasi" class="outcome-read-more outcome-read-more-secondary">
+                            Read More <span aria-hidden="true">&rarr;</span>
+                        </a>
                     </div>
                 </article>
 
