@@ -1,10 +1,25 @@
 <header class="site-header">
     <div class="container navbar">
         <a class="brand" href="<?= htmlspecialchars($appConfig['url']) ?>/">
-            <?= htmlspecialchars($siteName) ?>
+            <img
+                src="<?= htmlspecialchars($appConfig['url']) ?>/assets/images/logo_bulat.png"
+                alt="Logo STP AMPTA"
+                class="brand-logo"
+            >
+            <div class="brand-text">
+                <span class="brand-title">Pascasarjana STP AMPTA</span>
+                <span class="brand-subtitle">Yogyakarta</span>
+            </div>
         </a>
-        <nav aria-label="Navigasi utama">
+
+        <nav class="nav-menu" aria-label="Navigasi utama">
             <a href="<?= htmlspecialchars($appConfig['url']) ?>/">Beranda</a>
+            <a href="#hero-section">Profil</a>
+            <a href="#status-aplikasi">Program</a>
+            <a href="#status-aplikasi">Informasi</a>
+            <a href="#site-footer">Kontak</a>
         </nav>
+
+        <a class="nav-cta" href="#hero-section">Daftar PMB</a>
     </div>
 </header>
