@@ -26,6 +26,20 @@ $heroSlides = [
     ],
 ];
 
+$competencyItems = [
+    'Perencanaan destinasi dan pengembangan pariwisata terapan.',
+    'Analisis hospitality, layanan, dan kebutuhan industri.',
+    'Komunikasi profesional, kolaborasi, dan problem solving.',
+    'Pengembangan inovasi dan kewirausahaan pariwisata.',
+];
+
+$careerItems = [
+    'Destination planner & tourism development officer.',
+    'Manajer hospitality, event, atau venue management.',
+    'Konsultan perencanaan pariwisata dan ekonomi kreatif.',
+    'Akademisi, peneliti, maupun entrepreneur pariwisata.',
+];
+
 require BASE_PATH . '/resources/views/layouts/header.php';
 require BASE_PATH . '/resources/views/layouts/navbar.php';
 ?>
@@ -192,6 +206,99 @@ require BASE_PATH . '/resources/views/layouts/navbar.php';
                     <span class="program-stat-label">Akreditasi</span>
                     <strong>Baik</strong>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="outcomes-section" id="alumni-insight">
+        <div class="outcomes-glow outcomes-glow-one"></div>
+        <div class="outcomes-glow outcomes-glow-two"></div>
+
+        <div class="container outcomes-wrap">
+            <div class="outcomes-heading">
+                <p class="outcomes-kicker">Alumni & Prospek</p>
+                <h2 class="outcomes-title">Cerita lulusan, publikasi, dan kompetensi yang siap terhubung ke dunia kerja.</h2>
+                <p class="outcomes-description">
+                    Section ini masih berupa dummy tampilan untuk beranda. Nantinya informasi alumni, publikasi,
+                    kompetensi lulusan, dan prospek kerja bisa diarahkan ke halaman khusus yang lebih lengkap.
+                </p>
+            </div>
+
+            <div class="outcomes-grid">
+                <article class="outcome-card outcome-card-feature">
+                    <div class="outcome-feature-media">
+                        <img
+                            src="<?= htmlspecialchars($appConfig['url']) ?>/assets/images/gambar_kampus1.jpg"
+                            alt="Visual alumni Pascasarjana STP AMPTA"
+                            class="outcome-feature-image"
+                        >
+                        <span class="outcome-media-chip">Testimoni Alumni</span>
+                    </div>
+
+                    <div class="outcome-feature-content">
+                        <p class="outcome-card-kicker">Alumni</p>
+                        <h3 class="outcome-card-title">Lulusan yang siap berkembang di sektor pariwisata dan hospitality.</h3>
+                        <p class="outcome-card-text outcome-quote">
+                            “Perkuliahan memberi saya wawasan yang lebih strategis dalam merancang program pengembangan destinasi
+                            dan memahami kebutuhan industri secara lebih nyata.”
+                        </p>
+
+                        <div class="outcome-profile-meta">
+                            <strong>Nadia Pramesti, M.Tr.Par.</strong>
+                            <span>Alumni Pascasarjana STP AMPTA • Destination Development Associate</span>
+                        </div>
+
+                        <a href="#site-footer" class="outcome-link">Cerita lengkap akan hadir di halaman alumni</a>
+                    </div>
+                </article>
+
+                <article class="outcome-card outcome-card-publication">
+                    <p class="outcome-card-kicker">Publikasi</p>
+                    <h3 class="outcome-card-title">Contoh highlight publikasi riset mahasiswa dan alumni.</h3>
+                    <p class="outcome-card-text">
+                        Tema riset dapat mencakup pengembangan destinasi, hospitality, ekonomi kreatif,
+                        hingga inovasi layanan berbasis kebutuhan wisatawan.
+                    </p>
+
+                    <div class="publication-preview">
+                        <span class="publication-badge">Research Highlight</span>
+                        <strong>Strategi Pengembangan Destinasi Wisata Berkelanjutan Berbasis Kolaborasi Stakeholder</strong>
+                        <p>Jurnal Pariwisata Terapan • 2026 • Dummy preview untuk halaman beranda.</p>
+                        <div class="publication-lines" aria-hidden="true">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="outcome-card outcome-card-competency">
+                    <div class="outcome-competency-head">
+                        <p class="outcome-card-kicker">Kompetensi & Prospek Kerja</p>
+                        <h3 class="outcome-card-title">Satu ringkasan yang menjelaskan bekal lulusan dan arah kariernya.</h3>
+                    </div>
+
+                    <div class="outcome-competency-grid">
+                        <div class="outcome-competency-block">
+                            <h4>Kompetensi Utama</h4>
+                            <ul class="outcome-list">
+                                <?php foreach ($competencyItems as $item): ?>
+                                    <li><?= htmlspecialchars($item) ?></li>
+                                <?php endforeach; ?>
+                            </ul>
+                        </div>
+
+                        <div class="outcome-competency-block">
+                            <h4>Prospek Karier</h4>
+                            <ul class="outcome-list outcome-list-career">
+                                <?php foreach ($careerItems as $item): ?>
+                                    <li><?= htmlspecialchars($item) ?></li>
+                                <?php endforeach; ?>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
             </div>
         </div>
     </section>
