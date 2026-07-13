@@ -16,7 +16,7 @@
             <a href="<?= htmlspecialchars($appConfig['url']) ?>/">Beranda</a>
             <a href="#program-profile">Profil</a>
             <a href="#program-profile">Program</a>
-            <a href="#status-aplikasi">Informasi</a>
+            <a href="#informasi-kegiatan">Informasi</a>
             <a href="#site-footer">Kontak</a>
         </nav>
 

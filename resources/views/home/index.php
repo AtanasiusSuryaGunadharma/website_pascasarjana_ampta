@@ -40,6 +40,36 @@ $careerItems = [
     'Akademisi, peneliti, maupun entrepreneur pariwisata.',
 ];
 
+$newsItems = [
+    [
+        'category' => 'Kegiatan Akademik',
+        'date' => '18 Juli 2026',
+        'iso_date' => '2026-07-18',
+        'title' => 'Kuliah tamu pengembangan destinasi pariwisata berbasis kolaborasi.',
+        'excerpt' => 'Kegiatan akademik yang menghadirkan praktisi industri untuk membahas strategi pengembangan destinasi yang adaptif dan berkelanjutan.',
+        'image' => 'gambar_kampus1.jpg',
+        'slug' => 'kuliah-tamu-pengembangan-destinasi',
+    ],
+    [
+        'category' => 'Informasi PMB',
+        'date' => '12 Juli 2026',
+        'iso_date' => '2026-07-12',
+        'title' => 'Pendaftaran mahasiswa baru Pascasarjana STP AMPTA telah dibuka.',
+        'excerpt' => 'Temukan informasi awal mengenai program Magister Terapan Pariwisata, alur pendaftaran, dan persiapan dokumen calon mahasiswa.',
+        'image' => 'gambar_kampus2.jpg',
+        'slug' => 'pendaftaran-mahasiswa-baru-pascasarjana',
+    ],
+    [
+        'category' => 'Alumni & Industri',
+        'date' => '05 Juli 2026',
+        'iso_date' => '2026-07-05',
+        'title' => 'Alumni berbagi pengalaman karier di bidang hospitality dan pengembangan destinasi.',
+        'excerpt' => 'Sesi berbagi pengalaman yang mempertemukan mahasiswa, alumni, dan mitra industri untuk memperluas wawasan profesional.',
+        'image' => '260428110348698.jpeg',
+        'slug' => 'alumni-berbagi-pengalaman-karier',
+    ],
+];
+
 require BASE_PATH . '/resources/views/layouts/header.php';
 require BASE_PATH . '/resources/views/layouts/navbar.php';
 ?>
@@ -309,6 +339,56 @@ require BASE_PATH . '/resources/views/layouts/navbar.php';
                         </div>
                     </div>
                 </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="news-section" id="informasi-kegiatan">
+        <div class="news-section-accent news-section-accent-one"></div>
+        <div class="news-section-accent news-section-accent-two"></div>
+
+        <div class="container news-section-wrap">
+            <div class="news-heading-row">
+                <div class="news-heading-copy">
+                    <p class="news-kicker">Informasi & Kegiatan</p>
+                    <h2 class="news-title">Kabar terbaru dari Pascasarjana STP AMPTA.</h2>
+                    <p class="news-description">
+                        Ringkasan berita, agenda akademik, informasi PMB, dan kegiatan kolaboratif yang dapat dibaca lebih lengkap pada halaman khusus.
+                    </p>
+                </div>
+
+                <a href="<?= htmlspecialchars($appConfig['url']) ?>/berita" class="news-view-all">
+                    Lihat Semua <span aria-hidden="true">&rarr;</span>
+                </a>
+            </div>
+
+            <div class="news-grid">
+                <?php foreach ($newsItems as $news): ?>
+                    <article class="news-card">
+                        <a href="<?= htmlspecialchars($appConfig['url']) ?>/berita/<?= htmlspecialchars($news['slug']) ?>" class="news-card-media">
+                            <img
+                                src="<?= htmlspecialchars($appConfig['url']) ?>/assets/images/<?= htmlspecialchars($news['image']) ?>"
+                                alt="<?= htmlspecialchars($news['title']) ?>"
+                                class="news-card-image"
+                            >
+                            <span class="news-category"><?= htmlspecialchars($news['category']) ?></span>
+                        </a>
+
+                        <div class="news-card-body">
+                            <time class="news-date" datetime="<?= htmlspecialchars($news['iso_date']) ?>"><?= htmlspecialchars($news['date']) ?></time>
+                            <h3 class="news-card-title">
+                                <a href="<?= htmlspecialchars($appConfig['url']) ?>/berita/<?= htmlspecialchars($news['slug']) ?>">
+                                    <?= htmlspecialchars($news['title']) ?>
+                                </a>
+                            </h3>
+                            <p class="news-card-text"><?= htmlspecialchars($news['excerpt']) ?></p>
+
+                            <a href="<?= htmlspecialchars($appConfig['url']) ?>/berita/<?= htmlspecialchars($news['slug']) ?>" class="news-read-more">
+                                Read More <span aria-hidden="true">&rarr;</span>
+                            </a>
+                        </div>
+                    </article>
+                <?php endforeach; ?>
             </div>
         </div>
     </section>
