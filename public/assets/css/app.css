@@ -1,0 +1,140 @@
+:root {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #172033;
+    background: #f4f6f9;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+}
+
+.container {
+    width: min(1100px, calc(100% - 40px));
+    margin: 0 auto;
+}
+
+.site-header {
+    background: #ffffff;
+    border-bottom: 1px solid #dfe4ec;
+}
+
+.navbar {
+    min-height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.brand,
+.navbar a {
+    color: #183a65;
+    text-decoration: none;
+}
+
+.brand {
+    font-weight: 700;
+}
+
+.hero {
+    padding: 96px 0;
+    color: #ffffff;
+    background: linear-gradient(135deg, #17395f, #1f6b84);
+}
+
+.hero h1 {
+    max-width: 760px;
+    margin: 12px 0;
+    font-size: clamp(2.2rem, 6vw, 4.7rem);
+    line-height: 1.05;
+}
+
+.hero p {
+    max-width: 660px;
+    margin: 0;
+    font-size: 1.2rem;
+    line-height: 1.7;
+}
+
+.eyebrow,
+.status-label {
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.status-section {
+    display: grid;
+    gap: 20px;
+    padding-top: 40px;
+    padding-bottom: 56px;
+}
+
+.status-card {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 28px;
+    background: #ffffff;
+    border: 1px solid #dfe4ec;
+    border-radius: 14px;
+    box-shadow: 0 12px 32px rgba(20, 42, 70, 0.08);
+}
+
+.status-card h2 {
+    margin: 6px 0 10px;
+}
+
+.status-card p {
+    margin: 0;
+    line-height: 1.65;
+}
+
+.status-badge {
+    flex: 0 0 auto;
+    padding: 8px 12px;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+.status-badge.success {
+    color: #12643c;
+    background: #dff6e9;
+}
+
+.status-badge.warning {
+    color: #815400;
+    background: #fff0c7;
+}
+
+.error-box {
+    max-width: 100%;
+    overflow-x: auto;
+    margin-top: 18px;
+    padding: 14px;
+    color: #8a1f24;
+    background: #fff0f1;
+    border-radius: 8px;
+    white-space: pre-wrap;
+}
+
+.site-footer {
+    padding: 24px 0;
+    color: #596577;
+    background: #ffffff;
+    border-top: 1px solid #dfe4ec;
+}
+
+@media (max-width: 640px) {
+    .status-card {
+        flex-direction: column;
+    }
+}
