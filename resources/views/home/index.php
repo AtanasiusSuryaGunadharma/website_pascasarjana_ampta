@@ -40,6 +40,31 @@ $careerItems = [
     'Akademisi, peneliti, maupun entrepreneur pariwisata.',
 ];
 
+
+$facilities = [
+    [
+        'name' => 'Ruang Kelas & Diskusi Pascasarjana',
+        'description' => 'Ruang belajar yang nyaman untuk perkuliahan, diskusi akademik, presentasi, dan kolaborasi antarmahasiswa.',
+        'image' => 'gambar_kampus2.jpg',
+        'href' => '/fasilitas/ruang-kelas-dan-diskusi',
+        'featured' => true,
+    ],
+    [
+        'name' => 'Laboratorium Hospitality',
+        'description' => 'Fasilitas praktik untuk mendukung pembelajaran terapan, simulasi layanan, dan pengembangan kompetensi hospitality.',
+        'image' => 'gambar_kampus1.jpg',
+        'href' => '/fasilitas/laboratorium-hospitality',
+        'featured' => false,
+    ],
+    [
+        'name' => 'Perpustakaan & Sumber Belajar',
+        'description' => 'Akses referensi akademik, jurnal, bahan riset, dan sumber belajar digital untuk menunjang studi pascasarjana.',
+        'image' => 'gambar_kampus2.jpg',
+        'href' => '/fasilitas/perpustakaan-dan-sumber-belajar',
+        'featured' => false,
+    ],
+];
+
 $newsItems = [
     [
         'category' => 'Kegiatan Akademik',
@@ -236,6 +261,58 @@ require BASE_PATH . '/resources/views/layouts/navbar.php';
                     <span class="program-stat-label">Akreditasi</span>
                     <strong>Baik</strong>
                 </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="facilities-section" id="fasilitas">
+        <div class="facilities-decoration facilities-decoration-one"></div>
+        <div class="facilities-decoration facilities-decoration-two"></div>
+
+        <div class="container facilities-wrap">
+            <div class="facilities-heading-row">
+                <div class="facilities-heading-copy">
+                    <p class="facilities-kicker">Fasilitas Pendukung</p>
+                    <h2 class="facilities-title">Ruang belajar yang mendukung pengalaman akademik terapan.</h2>
+                    <p class="facilities-description">
+                        Contoh ringkas fasilitas Pascasarjana STP AMPTA. Informasi lengkap nantinya dapat ditampilkan
+                        pada halaman khusus fasilitas beserta galeri dan detail penggunaannya.
+                    </p>
+                </div>
+
+                <a href="<?= htmlspecialchars($appConfig['url']) ?>/fasilitas" class="facilities-view-all">
+                    Lihat Semua Fasilitas <span aria-hidden="true">&rarr;</span>
+                </a>
+            </div>
+
+            <div class="facilities-grid">
+                <?php foreach ($facilities as $index => $facility): ?>
+                    <article class="facility-card <?= $facility['featured'] ? 'facility-card-featured' : '' ?>">
+                        <a href="<?= htmlspecialchars($appConfig['url'] . $facility['href']) ?>" class="facility-media">
+                            <img
+                                src="<?= htmlspecialchars($appConfig['url']) ?>/assets/images/<?= htmlspecialchars($facility['image']) ?>"
+                                alt="<?= htmlspecialchars($facility['name']) ?>"
+                                class="facility-image facility-image-<?= $index + 1 ?>"
+                            >
+                            <span class="facility-number">0<?= $index + 1 ?></span>
+                            <span class="facility-media-overlay"></span>
+                        </a>
+
+                        <div class="facility-content">
+                            <p class="facility-label">Fasilitas Akademik</p>
+                            <h3 class="facility-title">
+                                <a href="<?= htmlspecialchars($appConfig['url'] . $facility['href']) ?>">
+                                    <?= htmlspecialchars($facility['name']) ?>
+                                </a>
+                            </h3>
+                            <p class="facility-text"><?= htmlspecialchars($facility['description']) ?></p>
+                            <a href="<?= htmlspecialchars($appConfig['url'] . $facility['href']) ?>" class="facility-link">
+                                Lihat Detail <span aria-hidden="true">&rarr;</span>
+                            </a>
+                        </div>
+                    </article>
+                <?php endforeach; ?>
             </div>
         </div>
     </section>

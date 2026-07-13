@@ -822,6 +822,289 @@ a {
 
 
 
+
+
+/* =========================================================
+   Fasilitas pendukung pembelajaran
+   ========================================================= */
+.facilities-section {
+    position: relative;
+    overflow: hidden;
+    padding: 86px 0 76px;
+    background:
+        linear-gradient(180deg, #f8fbff 0%, #eef4fa 54%, #f7f9fc 100%);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.facilities-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+        linear-gradient(90deg, rgba(12, 45, 87, 0.045) 1px, transparent 1px),
+        linear-gradient(rgba(12, 45, 87, 0.045) 1px, transparent 1px);
+    background-size: 58px 58px;
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.78), transparent 94%);
+}
+
+.facilities-decoration {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.facilities-decoration-one {
+    top: -210px;
+    right: -120px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(29, 91, 134, 0.18) 0%, rgba(29, 91, 134, 0) 72%);
+}
+
+.facilities-decoration-two {
+    bottom: -230px;
+    left: -150px;
+    width: 520px;
+    height: 520px;
+    background: radial-gradient(circle, rgba(240, 180, 58, 0.16) 0%, rgba(240, 180, 58, 0) 72%);
+}
+
+.facilities-wrap {
+    position: relative;
+    z-index: 1;
+}
+
+.facilities-heading-row {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 30px;
+    margin-bottom: 34px;
+}
+
+.facilities-heading-copy {
+    max-width: 790px;
+}
+
+.facilities-kicker {
+    margin: 0 0 12px;
+    color: #5f7190;
+    font-size: 0.84rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.facilities-title {
+    margin: 0;
+    color: #10294a;
+    font-size: clamp(2.15rem, 4vw, 3.8rem);
+    line-height: 1.08;
+    letter-spacing: -0.035em;
+}
+
+.facilities-description {
+    max-width: 720px;
+    margin: 16px 0 0;
+    color: #66758a;
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+.facilities-view-all {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    gap: 10px;
+    min-height: 48px;
+    padding: 0 20px;
+    border-radius: 999px;
+    background: #0c2d57;
+    color: #ffffff;
+    font-weight: 800;
+    box-shadow: 0 14px 28px rgba(12, 45, 87, 0.18);
+    transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+}
+
+.facilities-view-all:hover,
+.facilities-view-all:focus-visible {
+    transform: translateY(-2px);
+    background: #174f82;
+    box-shadow: 0 18px 34px rgba(12, 45, 87, 0.24);
+}
+
+.facilities-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.12fr) minmax(350px, 0.88fr);
+    grid-template-rows: repeat(2, minmax(230px, 1fr));
+    gap: 22px;
+}
+
+.facility-card {
+    display: grid;
+    grid-template-columns: minmax(160px, 0.88fr) minmax(0, 1.12fr);
+    min-height: 100%;
+    overflow: hidden;
+    border: 1px solid rgba(204, 216, 230, 0.94);
+    border-radius: 26px;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 18px 40px rgba(16, 41, 74, 0.08);
+    transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+}
+
+.facility-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(159, 183, 211, 0.95);
+    box-shadow: 0 24px 48px rgba(16, 41, 74, 0.14);
+}
+
+.facility-card-featured {
+    grid-row: 1 / 3;
+    grid-template-columns: 1fr;
+    grid-template-rows: minmax(350px, 1.1fr) auto;
+}
+
+.facility-media {
+    position: relative;
+    display: block;
+    min-height: 100%;
+    overflow: hidden;
+    background: #dce7f2;
+}
+
+.facility-image {
+    width: 100%;
+    height: 100%;
+    min-height: 230px;
+    object-fit: cover;
+    transition: transform 0.45s ease;
+}
+
+.facility-card-featured .facility-image {
+    min-height: 350px;
+}
+
+.facility-image-1 {
+    object-position: center 48%;
+}
+
+.facility-image-2 {
+    object-position: center 50%;
+}
+
+.facility-image-3 {
+    object-position: center 42%;
+}
+
+.facility-card:hover .facility-image {
+    transform: scale(1.045);
+}
+
+.facility-media-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(180deg, rgba(6, 26, 52, 0.02) 45%, rgba(6, 26, 52, 0.5) 100%);
+    pointer-events: none;
+}
+
+.facility-number {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 44px;
+    height: 34px;
+    padding: 0 12px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.9);
+    color: #0f2444;
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    box-shadow: 0 12px 24px rgba(12, 25, 49, 0.12);
+    backdrop-filter: blur(10px);
+}
+
+.facility-content {
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+}
+
+.facility-card-featured .facility-content {
+    padding: 28px;
+}
+
+.facility-label {
+    margin: 0 0 10px;
+    color: var(--accent);
+    font-size: 0.76rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.facility-title {
+    margin: 0;
+    font-size: 1.35rem;
+    line-height: 1.32;
+}
+
+.facility-card-featured .facility-title {
+    font-size: clamp(1.7rem, 2.5vw, 2.3rem);
+}
+
+.facility-title a {
+    color: #10294a;
+    transition: color 0.25s ease;
+}
+
+.facility-title a:hover,
+.facility-title a:focus-visible {
+    color: #1d5b86;
+}
+
+.facility-text {
+    display: -webkit-box;
+    overflow: hidden;
+    margin: 13px 0 0;
+    color: #66758a;
+    line-height: 1.7;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+}
+
+.facility-card-featured .facility-text {
+    max-width: 720px;
+    font-size: 1rem;
+}
+
+.facility-link {
+    display: inline-flex;
+    align-items: center;
+    align-self: flex-start;
+    gap: 8px;
+    margin-top: auto;
+    padding-top: 18px;
+    color: #0f4f86;
+    font-size: 0.9rem;
+    font-weight: 800;
+    transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.facility-link:hover,
+.facility-link:focus-visible {
+    color: #0c2d57;
+    transform: translateX(3px);
+}
+
+
 /* =========================================================
    Ringkasan alumni, publikasi, kompetensi, dan prospek kerja
    ========================================================= */
@@ -1484,6 +1767,27 @@ a {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
+    .facilities-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-rows: auto;
+    }
+
+    .facility-card,
+    .facility-card-featured {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+    }
+
+    .facility-card-featured {
+        grid-column: 1 / -1;
+        grid-row: auto;
+    }
+
+    .facility-card-featured .facility-media,
+    .facility-card-featured .facility-image {
+        min-height: 330px;
+    }
+
     .outcomes-grid,
     .outcome-card-feature,
     .outcome-competency-grid {
@@ -1507,6 +1811,24 @@ a {
     .program-profile-visual,
     .program-profile-image {
         min-height: 360px;
+    }
+
+    .facilities-section {
+        padding: 72px 0 62px;
+    }
+
+    .facilities-heading-row {
+        align-items: flex-start;
+        flex-direction: column;
+        margin-bottom: 28px;
+    }
+
+    .facilities-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .facility-card-featured {
+        grid-column: auto;
     }
 
     .outcomes-section {
@@ -1642,6 +1964,36 @@ a {
 
     .program-stat-card strong {
         font-size: 0.98rem;
+    }
+
+    .facilities-section {
+        padding: 62px 0 54px;
+    }
+
+    .facility-card,
+    .facility-card-featured {
+        border-radius: 22px;
+    }
+
+    .facility-card .facility-media,
+    .facility-card .facility-image,
+    .facility-card-featured .facility-media,
+    .facility-card-featured .facility-image {
+        min-height: 245px;
+    }
+
+    .facility-content,
+    .facility-card-featured .facility-content {
+        padding: 22px;
+    }
+
+    .facilities-view-all {
+        width: 100%;
+    }
+
+    .facilities-description,
+    .facility-text {
+        font-size: 0.95rem;
     }
 
     .outcome-card,
