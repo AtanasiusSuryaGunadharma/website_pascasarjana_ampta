@@ -450,105 +450,325 @@ a {
     background: rgba(255, 255, 255, 0.24);
 }
 
-.status-section {
-    position: relative;
-    z-index: 2;
-    display: grid;
-    gap: 20px;
-    padding-top: 24px;
-    padding-bottom: 70px;
-}
 
-.status-card {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 24px;
-    padding: 28px;
-    background: rgba(255, 255, 255, 0.96);
-    border: 1px solid var(--border);
-    border-radius: 18px;
-    box-shadow: 0 18px 35px rgba(20, 42, 70, 0.08);
-}
 
-.status-label {
-    margin: 0 0 6px;
-    font-size: 0.82rem;
-    font-weight: 800;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: #50627d;
-}
 
-.status-card h2 {
-    margin: 0 0 10px;
-    font-size: 1.95rem;
-    line-height: 1.25;
-    color: #0f2444;
-}
-
-.status-card p {
-    margin: 0;
-    line-height: 1.75;
-    color: var(--text-soft);
-}
-
-.status-badge {
-    flex: 0 0 auto;
-    padding: 10px 14px;
-    border-radius: 999px;
-    font-size: 0.86rem;
-    font-weight: 800;
-}
-
-.status-badge.success {
-    color: #12643c;
-    background: #dff6e9;
-}
-
-.status-badge.warning {
-    color: #815400;
-    background: #fff0c7;
-}
-
-.error-box {
-    max-width: 100%;
-    overflow-x: auto;
-    margin-top: 18px;
-    padding: 14px;
-    color: #8a1f24;
-    background: #fff0f1;
-    border-radius: 8px;
-    white-space: pre-wrap;
-}
-
+/* =========================================================
+   Footer utama
+   ========================================================= */
 .site-footer {
-    padding: 30px 0;
-    background: #ffffff;
-    border-top: 1px solid #dde5ef;
+    position: relative;
+    overflow: hidden;
+    color: rgba(255, 255, 255, 0.82);
+    background:
+        radial-gradient(circle at 12% 18%, rgba(44, 119, 190, 0.2), transparent 28%),
+        radial-gradient(circle at 90% 8%, rgba(240, 180, 58, 0.14), transparent 24%),
+        linear-gradient(135deg, #06172f 0%, #0a2b52 52%, #0c3764 100%);
 }
 
-.footer-content {
+.footer-pattern {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.42;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+    background-size: 54px 54px;
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), transparent 92%);
+}
+
+.footer-cta {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 28px;
+    padding: 30px 34px;
+    transform: translateY(-24px);
+    border: 1px solid rgba(255, 255, 255, 0.13);
+    border-radius: 26px;
+    background:
+        linear-gradient(120deg, rgba(255, 255, 255, 0.13), rgba(255, 255, 255, 0.06)),
+        linear-gradient(135deg, rgba(21, 75, 126, 0.75), rgba(10, 43, 82, 0.86));
+    box-shadow: 0 24px 56px rgba(1, 13, 30, 0.28);
+    backdrop-filter: blur(18px);
+}
+
+.footer-cta::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 150px;
+    height: 100%;
+    pointer-events: none;
+    background: linear-gradient(90deg, transparent, rgba(240, 180, 58, 0.12));
+}
+
+.footer-cta > * {
+    position: relative;
+    z-index: 1;
+}
+
+.footer-cta-kicker {
+    margin: 0 0 8px;
+    color: #ffd477;
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.footer-cta h2 {
+    margin: 0;
+    color: #ffffff;
+    font-size: clamp(1.55rem, 2.7vw, 2.4rem);
+    line-height: 1.2;
+}
+
+.footer-cta p:not(.footer-cta-kicker) {
+    max-width: 700px;
+    margin: 10px 0 0;
+    color: rgba(255, 255, 255, 0.72);
+    line-height: 1.7;
+}
+
+.footer-cta-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    min-height: 50px;
+    padding: 0 22px;
+    border-radius: 999px;
+    color: #1d2430;
+    background: linear-gradient(135deg, #ffd66f, #f0b43a);
+    font-weight: 800;
+    box-shadow: 0 14px 30px rgba(240, 180, 58, 0.26);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.footer-cta-button:hover,
+.footer-cta-button:focus-visible {
+    transform: translateY(-2px);
+    box-shadow: 0 18px 36px rgba(240, 180, 58, 0.34);
+}
+
+.footer-main {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: minmax(0, 1.45fr) minmax(150px, 0.72fr) minmax(160px, 0.8fr) minmax(210px, 0.9fr);
+    gap: 42px;
+    padding-top: 26px;
+    padding-bottom: 56px;
+}
+
+.footer-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    color: #ffffff;
+}
+
+.footer-logo {
+    width: 58px;
+    height: 58px;
+    object-fit: contain;
+    border-radius: 50%;
+    padding: 5px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.footer-brand span {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.footer-brand strong {
+    font-size: 1.02rem;
+}
+
+.footer-brand small {
+    color: rgba(255, 255, 255, 0.62);
+    font-size: 0.83rem;
+}
+
+.footer-summary {
+    max-width: 500px;
+    margin: 22px 0 0;
+    color: rgba(255, 255, 255, 0.68);
+    line-height: 1.75;
+}
+
+.footer-contact-list {
+    display: grid;
+    gap: 11px;
+    margin-top: 24px;
+}
+
+.footer-contact-list p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.66);
+    line-height: 1.65;
+}
+
+.footer-contact-label {
+    display: block;
+    margin-bottom: 2px;
+    color: #ffffff;
+    font-size: 0.8rem;
+    font-weight: 800;
+}
+
+.footer-contact-list a,
+.footer-column a,
+.footer-socials a {
+    color: rgba(255, 255, 255, 0.72);
+    transition: color 0.22s ease, transform 0.22s ease, background 0.22s ease;
+}
+
+.footer-contact-list a:hover,
+.footer-contact-list a:focus-visible,
+.footer-column a:hover,
+.footer-column a:focus-visible {
+    color: #ffd477;
+}
+
+.footer-column,
+.footer-connect-column {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.footer-column h3,
+.footer-connect-column h3 {
+    position: relative;
+    margin: 0 0 22px;
+    padding-bottom: 11px;
+    color: #ffffff;
+    font-size: 1rem;
+}
+
+.footer-column h3::after,
+.footer-connect-column h3::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 44px;
+    height: 3px;
+    border-radius: 999px;
+    background: #f0b43a;
+}
+
+.footer-column a {
+    display: inline-flex;
+    margin-bottom: 13px;
+    line-height: 1.5;
+}
+
+.footer-column a:hover,
+.footer-column a:focus-visible {
+    transform: translateX(3px);
+}
+
+.footer-connect-column > p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.66);
+    line-height: 1.7;
+}
+
+.footer-socials {
+    display: grid;
+    gap: 12px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.footer-socials a {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    min-height: 46px;
+    padding: 0 14px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.055);
+    font-weight: 700;
+}
+
+.footer-socials a:hover,
+.footer-socials a:focus-visible {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+.footer-social-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 9px;
+    color: #0b294d;
+    background: #f0b43a;
+    font-size: 0.68rem;
+    font-weight: 900;
+}
+
+.footer-bottom {
+    position: relative;
+    z-index: 1;
+    border-top: 1px solid rgba(255, 255, 255, 0.09);
+    background: rgba(2, 15, 33, 0.34);
+}
+
+.footer-bottom-inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 18px;
+    min-height: 72px;
 }
 
-.footer-title {
-    margin: 0 0 8px;
-    font-size: 1rem;
-    font-weight: 800;
-    color: #0f2444;
-}
-
-.footer-text,
-.footer-copy {
+.footer-bottom p {
     margin: 0;
-    color: #617084;
+    color: rgba(255, 255, 255, 0.58);
+    font-size: 0.88rem;
     line-height: 1.6;
 }
 
+.back-to-top {
+    position: fixed;
+    right: 22px;
+    bottom: 22px;
+    z-index: 90;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    color: #10294a;
+    background: linear-gradient(135deg, #ffd66f, #f0b43a);
+    box-shadow: 0 14px 32px rgba(10, 35, 67, 0.24);
+    font-size: 1.2rem;
+    font-weight: 900;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.back-to-top:hover,
+.back-to-top:focus-visible {
+    transform: translateY(-3px);
+    box-shadow: 0 18px 38px rgba(10, 35, 67, 0.3);
+}
 
 /* =========================================================
    Ringkasan profil program di halaman beranda
@@ -1747,6 +1967,10 @@ a {
 }
 
 @media (max-width: 1080px) {
+    .footer-main {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
     .hero-grid {
         grid-template-columns: 1fr;
     }
@@ -1804,6 +2028,15 @@ a {
 }
 
 @media (max-width: 860px) {
+    .footer-cta {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .footer-cta-button {
+        align-self: flex-start;
+    }
+
     .program-profile-section {
         padding: 72px 0 62px;
     }
@@ -1892,13 +2125,38 @@ a {
     .carousel-track {
         min-height: 500px;
     }
-
-    .status-card h2 {
-        font-size: 1.6rem;
-    }
 }
 
 @media (max-width: 640px) {
+    .footer-cta {
+        padding: 24px;
+        border-radius: 22px;
+    }
+
+    .footer-cta-button {
+        width: 100%;
+    }
+
+    .footer-main {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding-bottom: 42px;
+    }
+
+    .footer-bottom-inner {
+        align-items: flex-start;
+        flex-direction: column;
+        justify-content: center;
+        padding: 18px 0;
+    }
+
+    .back-to-top {
+        right: 16px;
+        bottom: 16px;
+        width: 44px;
+        height: 44px;
+    }
+
     .container {
         width: min(var(--container), calc(100% - 24px));
     }
@@ -2042,14 +2300,6 @@ a {
 
     .carousel-controls {
         justify-content: center;
-    }
-
-    .status-card {
-        flex-direction: column;
-    }
-
-    .status-badge {
-        align-self: flex-start;
     }
 
     .carousel-track {
