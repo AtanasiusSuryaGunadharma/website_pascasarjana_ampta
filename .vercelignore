@@ -1,14 +1,6 @@
-# Local and secret files
-.env
 .git
-.vercel
-
-# Composer will be installed by the PHP runtime
+.env
 vendor
-
-# Local database dumps and temporary files
-pascasarjana_ampta.sql
-*.zip
-*.log
-storage/logs/*
-storage/uploads/*
+storage/logs
+storage/uploads
+*.sql
