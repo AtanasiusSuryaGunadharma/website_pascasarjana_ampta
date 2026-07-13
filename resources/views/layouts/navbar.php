@@ -14,12 +14,12 @@
 
         <nav class="nav-menu" aria-label="Navigasi utama">
             <a href="<?= htmlspecialchars($appConfig['url']) ?>/">Beranda</a>
-            <a href="#hero-section">Profil</a>
-            <a href="#status-aplikasi">Program</a>
+            <a href="#program-profile">Profil</a>
+            <a href="#program-profile">Program</a>
             <a href="#status-aplikasi">Informasi</a>
             <a href="#site-footer">Kontak</a>
         </nav>
 
-        <a class="nav-cta" href="#hero-section">Daftar PMB</a>
+        <a class="nav-cta" href="#program-profile">Daftar PMB</a>
     </div>
 </header>

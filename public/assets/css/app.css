@@ -455,9 +455,8 @@ a {
     z-index: 2;
     display: grid;
     gap: 20px;
-    padding-top: 36px;
+    padding-top: 24px;
     padding-bottom: 70px;
-    margin-top: -36px;
 }
 
 .status-card {
@@ -550,6 +549,277 @@ a {
     line-height: 1.6;
 }
 
+
+/* =========================================================
+   Ringkasan profil program di halaman beranda
+   ========================================================= */
+.program-profile-section {
+    position: relative;
+    overflow: hidden;
+    padding: 88px 0 74px;
+    color: var(--white);
+    background:
+        linear-gradient(135deg, #071b38 0%, #0c2d57 43%, #144f7f 100%);
+    isolation: isolate;
+}
+
+.program-profile-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    opacity: 0.5;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+    background-size: 56px 56px;
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.75), transparent 94%);
+}
+
+.program-profile-orb {
+    position: absolute;
+    z-index: -1;
+    border-radius: 50%;
+    filter: blur(2px);
+    pointer-events: none;
+}
+
+.program-profile-orb-one {
+    top: -180px;
+    right: -90px;
+    width: 460px;
+    height: 460px;
+    background: radial-gradient(circle, rgba(240, 180, 58, 0.34) 0%, rgba(240, 180, 58, 0) 70%);
+}
+
+.program-profile-orb-two {
+    bottom: -220px;
+    left: -100px;
+    width: 520px;
+    height: 520px;
+    background: radial-gradient(circle, rgba(73, 153, 223, 0.32) 0%, rgba(73, 153, 223, 0) 72%);
+}
+
+.program-profile-wrap {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: minmax(0, 1.08fr) minmax(360px, 0.92fr);
+    gap: 38px;
+    align-items: center;
+}
+
+.program-profile-copy {
+    max-width: 680px;
+}
+
+.program-profile-kicker {
+    margin: 0 0 14px;
+    color: #ffd77c;
+    font-size: 0.82rem;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+
+.program-profile-title {
+    margin: 0;
+    max-width: 760px;
+    color: var(--white);
+    font-size: clamp(2.35rem, 4.4vw, 4.5rem);
+    line-height: 1.03;
+    letter-spacing: -0.04em;
+}
+
+.program-profile-subtitle {
+    display: inline-flex;
+    align-items: center;
+    min-height: 38px;
+    margin: 20px 0 0;
+    padding: 0 15px;
+    border: 1px solid rgba(255, 215, 124, 0.3);
+    border-radius: 999px;
+    background: rgba(240, 180, 58, 0.12);
+    color: #ffe3a8;
+    font-size: 0.9rem;
+    font-weight: 800;
+}
+
+.program-profile-text {
+    max-width: 650px;
+    margin: 20px 0 0;
+    color: rgba(255, 255, 255, 0.82);
+    font-size: 1.03rem;
+    line-height: 1.8;
+}
+
+.program-profile-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 24px;
+}
+
+.program-profile-tags span {
+    display: inline-flex;
+    align-items: center;
+    min-height: 36px;
+    padding: 0 14px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.84rem;
+    font-weight: 700;
+    backdrop-filter: blur(10px);
+}
+
+.program-profile-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 18px;
+    margin-top: 30px;
+}
+
+.program-profile-coming-soon:disabled {
+    cursor: default;
+    opacity: 1;
+}
+
+.program-profile-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    color: var(--white);
+    font-weight: 800;
+    transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.program-profile-link:hover,
+.program-profile-link:focus-visible {
+    color: #ffd77c;
+    transform: translateX(3px);
+}
+
+.program-profile-visual {
+    position: relative;
+    overflow: hidden;
+    min-height: 420px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 32px;
+    box-shadow: 0 28px 70px rgba(2, 12, 28, 0.38);
+}
+
+.program-profile-image {
+    width: 100%;
+    height: 100%;
+    min-height: 420px;
+    object-fit: cover;
+}
+
+.program-profile-image-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(180deg, rgba(5, 19, 41, 0.02) 30%, rgba(5, 19, 41, 0.9) 100%),
+        linear-gradient(90deg, rgba(5, 19, 41, 0.12), transparent 60%);
+}
+
+.program-profile-badge {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    display: inline-flex;
+    align-items: center;
+    min-height: 38px;
+    padding: 0 15px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.9);
+    color: #10294a;
+    font-size: 0.82rem;
+    font-weight: 800;
+    box-shadow: 0 14px 30px rgba(4, 16, 34, 0.2);
+    backdrop-filter: blur(12px);
+}
+
+.program-profile-caption {
+    position: absolute;
+    right: 24px;
+    bottom: 24px;
+    left: 24px;
+}
+
+.program-profile-caption span {
+    display: block;
+    margin-bottom: 8px;
+    color: #ffd77c;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+}
+
+.program-profile-caption strong {
+    display: block;
+    max-width: 430px;
+    color: var(--white);
+    font-size: 1.45rem;
+    line-height: 1.35;
+}
+
+.program-profile-stats {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 14px;
+    margin-top: 2px;
+}
+
+.program-stat-card {
+    position: relative;
+    overflow: hidden;
+    min-height: 104px;
+    padding: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 20px;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.13), rgba(255, 255, 255, 0.065));
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.09);
+    backdrop-filter: blur(14px);
+}
+
+.program-stat-card::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 72px;
+    height: 72px;
+    border-radius: 0 0 0 72px;
+    background: rgba(240, 180, 58, 0.12);
+}
+
+.program-stat-label {
+    position: relative;
+    z-index: 1;
+    display: block;
+    margin-bottom: 8px;
+    color: rgba(255, 255, 255, 0.62);
+    font-size: 0.77rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.program-stat-card strong {
+    position: relative;
+    z-index: 1;
+    display: block;
+    color: var(--white);
+    font-size: 1.08rem;
+    line-height: 1.35;
+}
+
 @media (prefers-reduced-motion: reduce) {
     html {
         scroll-behavior: auto;
@@ -572,9 +842,30 @@ a {
     .hero-points {
         grid-template-columns: 1fr;
     }
+
+    .program-profile-wrap {
+        grid-template-columns: 1fr;
+    }
+
+    .program-profile-copy {
+        max-width: 760px;
+    }
+
+    .program-profile-stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
 }
 
 @media (max-width: 860px) {
+    .program-profile-section {
+        padding: 72px 0 62px;
+    }
+
+    .program-profile-visual,
+    .program-profile-image {
+        min-height: 360px;
+    }
+
     .navbar {
         flex-wrap: wrap;
         justify-content: center;
@@ -623,14 +914,66 @@ a {
 
     .hero-actions,
     .carousel-footer,
-    .footer-content {
-        flex-direction: column;
-        align-items: stretch;
-    }
+    .footer-content,
+
 
     .btn,
     .nav-cta {
         width: 100%;
+    }
+
+    .program-profile-section {
+        padding: 62px 0 54px;
+    }
+
+    .program-profile-title {
+        font-size: clamp(2.15rem, 11vw, 3.25rem);
+    }
+
+    .program-profile-text {
+        font-size: 0.96rem;
+    }
+
+    .program-profile-actions {
+        align-items: stretch;
+    }
+
+    .program-profile-link {
+        justify-content: center;
+        min-height: 48px;
+    }
+
+    .program-profile-visual,
+    .program-profile-image {
+        min-height: 310px;
+    }
+
+    .program-profile-visual {
+        border-radius: 24px;
+    }
+
+    .program-profile-caption {
+        right: 18px;
+        bottom: 18px;
+        left: 18px;
+    }
+
+    .program-profile-caption strong {
+        font-size: 1.15rem;
+    }
+
+    .program-profile-stats {
+        gap: 10px;
+    }
+
+    .program-stat-card {
+        min-height: 96px;
+        padding: 16px;
+        border-radius: 17px;
+    }
+
+    .program-stat-card strong {
+        font-size: 0.98rem;
     }
 
     .carousel-controls {

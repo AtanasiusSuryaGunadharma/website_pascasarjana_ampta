@@ -5,21 +5,24 @@ $heroSlides = [
         'title' => 'Kampus nyaman untuk mendukung proses belajar yang fokus dan profesional.',
         'description' => 'Pascasarjana STP AMPTA Yogyakarta menghadirkan pengalaman belajar yang adaptif dengan suasana akademik yang mendukung.',
         'image' => 'gambar_kampus1.jpg',
-        'button' => 'Lihat Detail Kampus',
+        'button' => 'Lihat Profil Program',
+        'href' => '#program-profile',
     ],
     [
         'tag' => 'Nuansa akademik dan industri',
         'title' => 'Program pascasarjana yang dirancang untuk menjawab kebutuhan dunia pariwisata dan perhotelan.',
-        'description' => 'Tampilan awal ini dirancang sebagai landing section modern dengan perpaduan video background dan kartu informasi visual.',
+        'description' => 'Halaman depan ini memadukan video background, identitas kampus, dan informasi program yang ringkas serta mudah dipahami.',
         'image' => 'gambar_kampus2.jpg',
-        'button' => 'Eksplor Informasi',
+        'button' => 'Kenali Program Studi',
+        'href' => '#program-profile',
     ],
     [
         'tag' => 'Identitas Pascasarjana AMPTA',
         'title' => 'Bangun langkah akademik lanjutan bersama Pascasarjana STP AMPTA Yogyakarta.',
-        'description' => 'Visual utama memadukan identitas kampus, video profil, dan tampilan modern agar halaman depan lebih hidup.',
+        'description' => 'Program magister terapan yang menghubungkan akademik, industri, dan pengembangan pariwisata berkelanjutan.',
         'image' => 'gambar_kampus1.jpg',
-        'button' => 'Lihat Program Studi',
+        'button' => 'Lihat Ringkasan Program',
+        'href' => '#program-profile',
     ],
 ];
 
@@ -51,26 +54,26 @@ require BASE_PATH . '/resources/views/layouts/navbar.php';
 
                 <p class="hero-description">
                     <?= htmlspecialchars($tagline) ?>. Prototype halaman ini memadukan video background,
-                    identitas visual kampus, dan kartu informasi interaktif untuk area hero.
+                    identitas visual kampus, dan informasi program magister yang ringkas.
                 </p>
 
                 <div class="hero-actions">
-                    <a href="#status-aplikasi" class="btn btn-primary">Lihat Prototype</a>
-                    <a href="#status-aplikasi" class="btn btn-secondary">Tentang Program</a>
+                    <a href="#program-profile" class="btn btn-primary">Lihat Profil Program</a>
+                    <a href="#program-profile" class="btn btn-secondary">Tentang Program</a>
                 </div>
 
                 <div class="hero-points">
                     <div class="hero-point">
-                        <strong>Visual modern</strong>
-                        <span>Video background dan layout konten dinamis.</span>
+                        <strong>Satu program unggulan</strong>
+                        <span>Perencanaan dan Pengembangan Pariwisata jenjang magister terapan.</span>
                     </div>
                     <div class="hero-point">
-                        <strong>Identitas kampus</strong>
-                        <span>Menggunakan aset resmi logo dan gambar kampus.</span>
+                        <strong>Pembelajaran aplikatif</strong>
+                        <span>Terhubung dengan industri, hospitality, dan pengembangan destinasi.</span>
                     </div>
                     <div class="hero-point">
-                        <strong>Siap dikembangkan</strong>
-                        <span>Nanti bisa diteruskan ke section about, program, dan berita.</span>
+                        <strong>Berorientasi masa depan</strong>
+                        <span>Mendorong inovasi dan pariwisata yang berkelanjutan.</span>
                     </div>
                 </div>
             </div>
@@ -103,7 +106,7 @@ require BASE_PATH . '/resources/views/layouts/navbar.php';
                                 <span class="carousel-tag"><?= htmlspecialchars($slide['tag']) ?></span>
                                 <h3><?= htmlspecialchars($slide['title']) ?></h3>
                                 <p><?= htmlspecialchars($slide['description']) ?></p>
-                                <a href="#status-aplikasi" class="carousel-link">
+                                <a href="<?= htmlspecialchars($slide['href']) ?>" class="carousel-link">
                                     <?= htmlspecialchars($slide['button']) ?>
                                 </a>
                             </div>
@@ -127,6 +130,67 @@ require BASE_PATH . '/resources/views/layouts/navbar.php';
                         <button type="button" class="carousel-control" data-prev aria-label="Slide sebelumnya">&larr;</button>
                         <button type="button" class="carousel-control" data-next aria-label="Slide berikutnya">&rarr;</button>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="program-profile-section" id="program-profile">
+        <div class="program-profile-orb program-profile-orb-one"></div>
+        <div class="program-profile-orb program-profile-orb-two"></div>
+
+        <div class="container program-profile-wrap">
+            <div class="program-profile-copy">
+                <p class="program-profile-kicker">Profil Program</p>
+                <h2 class="program-profile-title">Perencanaan dan Pengembangan Pariwisata (S2)</h2>
+                <p class="program-profile-subtitle">Program Magister Terapan Pariwisata</p>
+                <p class="program-profile-text">
+                    Program pascasarjana yang menyiapkan perencana, pengembang, dan pemimpin pariwisata melalui pembelajaran
+                    terapan yang relevan dengan industri hospitality dan pembangunan destinasi berkelanjutan.
+                </p>
+
+                <div class="program-profile-tags" aria-label="Fokus program">
+                    <span>Pariwisata Terapan</span>
+                    <span>Hospitality</span>
+                    <span>Destinasi Berkelanjutan</span>
+                </div>
+
+                <div class="program-profile-actions">
+                    <button type="button" class="btn btn-primary program-profile-coming-soon" disabled>Profil Lengkap Segera Hadir</button>
+                    <a href="#site-footer" class="program-profile-link">Hubungi Pascasarjana <span aria-hidden="true">&rarr;</span></a>
+                </div>
+            </div>
+
+            <div class="program-profile-visual">
+                <img
+                    src="<?= htmlspecialchars($appConfig['url']) ?>/assets/images/gambar_kampus2.jpg"
+                    alt="Kampus Pascasarjana STP AMPTA Yogyakarta"
+                    class="program-profile-image"
+                >
+                <div class="program-profile-image-overlay"></div>
+                <div class="program-profile-badge">Satu Program Magister</div>
+                <div class="program-profile-caption">
+                    <span>Fokus Pembelajaran</span>
+                    <strong>Inovasi pariwisata dan hospitality berkelanjutan.</strong>
+                </div>
+            </div>
+
+            <div class="program-profile-stats">
+                <div class="program-stat-card">
+                    <span class="program-stat-label">Program</span>
+                    <strong>Magister Terapan</strong>
+                </div>
+                <div class="program-stat-card">
+                    <span class="program-stat-label">Durasi Studi</span>
+                    <strong>4 Semester</strong>
+                </div>
+                <div class="program-stat-card">
+                    <span class="program-stat-label">Gelar</span>
+                    <strong>M.Tr.Par.</strong>
+                </div>
+                <div class="program-stat-card">
+                    <span class="program-stat-label">Akreditasi</span>
+                    <strong>Baik</strong>
                 </div>
             </div>
         </div>
