@@ -1,0 +1,8 @@
+DirectoryIndex index.php
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /website_pascasarjana_ampta/
+
+    RewriteRule ^(assets|images|js|vendor)/(.*)$ public/$1/$2 [L]
+</IfModule>
