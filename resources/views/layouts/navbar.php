@@ -74,13 +74,6 @@
                         </form>
                     </div>
                 </div>
-
-                <a
-                    class="nav-cta"
-                    href="https://pmb.ampta.ac.id/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >Daftar PMB</a>
             </div>
         </div>
     </div>

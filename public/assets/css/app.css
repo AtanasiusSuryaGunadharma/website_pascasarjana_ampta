@@ -165,28 +165,6 @@ a {
     gap: 10px;
 }
 
-.nav-cta {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 46px;
-    padding: 0 21px;
-    border-radius: 999px;
-    background: var(--accent);
-    color: #17243a;
-    font-size: 0.92rem;
-    font-weight: 800;
-    white-space: nowrap;
-    box-shadow: 0 10px 24px rgba(240, 180, 58, 0.3);
-    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
-}
-
-.nav-cta:hover,
-.nav-cta:focus-visible {
-    background: #ffc64e;
-    box-shadow: 0 14px 30px rgba(240, 180, 58, 0.38);
-    transform: translateY(-2px);
-}
 
 .nav-search {
     position: relative;
@@ -909,34 +887,82 @@ a {
     line-height: 1.6;
 }
 
-.back-to-top {
+.floating-actions {
     position: fixed;
     right: 22px;
     bottom: 22px;
     z-index: 90;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.floating-pmb,
+.back-to-top {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    color: #10294a;
-    background: linear-gradient(135deg, #ffd66f, #f0b43a);
-    box-shadow: 0 14px 32px rgba(10, 35, 67, 0.24);
-    font-size: 1.2rem;
-    font-weight: 900;
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-    transform: translateY(14px) scale(0.9);
+    border: 1px solid transparent;
+    box-shadow: 0 14px 32px rgba(10, 35, 67, 0.22);
     transition:
+        width 0.25s ease,
+        margin 0.25s ease,
         opacity 0.25s ease,
         visibility 0.25s ease,
         transform 0.25s ease,
-        box-shadow 0.25s ease;
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+}
+
+.floating-pmb {
+    min-height: 50px;
+    gap: 9px;
+    padding: 0 18px;
+    border-color: rgba(240, 180, 58, 0.88);
+    border-radius: 999px;
+    color: #16243a;
+    background: linear-gradient(135deg, #ffd66f, #f0b43a);
+    font-size: 0.88rem;
+    font-weight: 850;
+    white-space: nowrap;
+}
+
+.floating-pmb svg {
+    width: 22px;
+    height: 22px;
+}
+
+.floating-pmb:hover,
+.floating-pmb:focus-visible {
+    background: linear-gradient(135deg, #ffe08b, #f4bd4c);
+    box-shadow: 0 18px 38px rgba(10, 35, 67, 0.28);
+    transform: translateY(-3px);
+}
+
+.back-to-top {
+    width: 0;
+    height: 50px;
+    margin-left: -10px;
+    overflow: hidden;
+    border-radius: 50%;
+    color: #ffffff;
+    background: linear-gradient(135deg, #1e6fc1, #0c2d57);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(14px) scale(0.88);
+}
+
+.back-to-top svg {
+    flex: 0 0 auto;
+    width: 23px;
+    height: 23px;
 }
 
 .back-to-top.is-visible {
+    width: 50px;
+    margin-left: 0;
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
@@ -945,8 +971,9 @@ a {
 
 .back-to-top.is-visible:hover,
 .back-to-top.is-visible:focus-visible {
-    transform: translateY(-3px) scale(1);
+    background: linear-gradient(135deg, #287dce, #123d6c);
     box-shadow: 0 18px 38px rgba(10, 35, 67, 0.3);
+    transform: translateY(-3px) scale(1);
 }
 
 /* =========================================================
@@ -2145,6 +2172,330 @@ a {
     }
 }
 
+
+/* =========================================================
+   Testimoni alumni - ditempatkan sebelum footer
+   ========================================================= */
+.alumni-testimonials-section {
+    position: relative;
+    overflow: hidden;
+    padding: 82px 0 86px;
+    border-top: 1px solid rgba(207, 220, 235, 0.75);
+    background:
+        linear-gradient(180deg, #f8fafc 0%, #eef4fa 100%);
+    isolation: isolate;
+}
+
+.alumni-testimonials-section::before {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    content: "";
+    opacity: 0.6;
+    background-image:
+        linear-gradient(rgba(12, 45, 87, 0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(12, 45, 87, 0.025) 1px, transparent 1px);
+    background-size: 52px 52px;
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.82), transparent 96%);
+}
+
+.alumni-testimonials-orb {
+    position: absolute;
+    z-index: -1;
+    border-radius: 50%;
+    pointer-events: none;
+    filter: blur(5px);
+}
+
+.alumni-testimonials-orb-one {
+    top: -190px;
+    right: -130px;
+    width: 420px;
+    height: 420px;
+    background: radial-gradient(circle, rgba(29, 91, 134, 0.16), rgba(29, 91, 134, 0) 72%);
+}
+
+.alumni-testimonials-orb-two {
+    bottom: -210px;
+    left: -150px;
+    width: 430px;
+    height: 430px;
+    background: radial-gradient(circle, rgba(240, 180, 58, 0.16), rgba(240, 180, 58, 0) 72%);
+}
+
+.alumni-testimonials-wrap {
+    position: relative;
+    z-index: 1;
+}
+
+.alumni-testimonials-heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 32px;
+    margin-bottom: 30px;
+}
+
+.alumni-testimonials-copy {
+    max-width: 800px;
+}
+
+.alumni-testimonials-kicker {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 0 0 12px;
+    color: #2b679c;
+    font-size: 0.82rem;
+    font-weight: 850;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.alumni-testimonials-kicker::after {
+    width: 64px;
+    height: 3px;
+    border-radius: 999px;
+    background: var(--accent);
+    content: "";
+}
+
+.alumni-testimonials-title {
+    margin: 0;
+    color: #10294a;
+    font-size: clamp(2.05rem, 3.5vw, 3.25rem);
+    line-height: 1.08;
+    letter-spacing: -0.035em;
+}
+
+.alumni-testimonials-description {
+    max-width: 760px;
+    margin: 16px 0 0;
+    color: #647489;
+    font-size: 1rem;
+    line-height: 1.75;
+}
+
+.alumni-testimonials-controls {
+    display: flex;
+    flex: 0 0 auto;
+    gap: 10px;
+}
+
+.alumni-testimonial-control {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    padding: 0;
+    border: 1px solid rgba(25, 76, 123, 0.18);
+    border-radius: 14px;
+    color: #164f82;
+    background: rgba(255, 255, 255, 0.86);
+    box-shadow: 0 10px 24px rgba(14, 45, 79, 0.08);
+    cursor: pointer;
+    transition: color 0.22s ease, background 0.22s ease, transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+.alumni-testimonial-control svg {
+    width: 22px;
+    height: 22px;
+}
+
+.alumni-testimonial-control:hover,
+.alumni-testimonial-control:focus-visible {
+    color: #ffffff;
+    background: #164f82;
+    box-shadow: 0 14px 28px rgba(14, 45, 79, 0.18);
+    transform: translateY(-2px);
+}
+
+.alumni-testimonials-window {
+    position: relative;
+    overflow: hidden;
+    min-height: 332px;
+    border: 1px solid rgba(199, 214, 231, 0.92);
+    border-radius: 28px;
+    background: rgba(255, 255, 255, 0.94);
+    box-shadow: 0 24px 55px rgba(13, 40, 74, 0.1);
+}
+
+.alumni-testimonial-slide {
+    display: none;
+    grid-template-columns: minmax(260px, 0.72fr) minmax(0, 1.28fr);
+    min-height: 332px;
+    animation: alumniTestimonialIn 0.32s ease both;
+}
+
+.alumni-testimonial-slide.is-active {
+    display: grid;
+}
+
+.alumni-testimonial-profile {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 38px;
+    border-right: 1px solid rgba(205, 217, 232, 0.86);
+    background:
+        linear-gradient(145deg, rgba(12, 45, 87, 0.97), rgba(25, 83, 128, 0.94));
+    color: #ffffff;
+}
+
+.alumni-testimonial-avatar {
+    flex: 0 0 auto;
+    width: 108px;
+    height: 108px;
+    object-fit: cover;
+    object-position: center 18%;
+    border: 4px solid rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    background: #ffffff;
+    box-shadow: 0 16px 32px rgba(1, 16, 35, 0.25);
+}
+
+.alumni-testimonial-avatar-initials {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #173a60;
+    background: linear-gradient(135deg, #fff4cd, #f0b43a);
+    font-size: 1.7rem;
+    font-weight: 900;
+    letter-spacing: 0.04em;
+}
+
+.alumni-testimonial-person {
+    min-width: 0;
+}
+
+.alumni-testimonial-chip {
+    display: inline-flex;
+    align-items: center;
+    min-height: 30px;
+    padding: 0 11px;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 999px;
+    color: #ffe39e;
+    background: rgba(255, 255, 255, 0.08);
+    font-size: 0.72rem;
+    font-weight: 850;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.alumni-testimonial-person h3 {
+    margin: 16px 0 0;
+    color: #ffffff;
+    font-size: clamp(1.25rem, 2vw, 1.65rem);
+    line-height: 1.22;
+}
+
+.alumni-testimonial-person p {
+    margin: 8px 0 0;
+    color: rgba(255, 255, 255, 0.78);
+    line-height: 1.55;
+}
+
+.alumni-testimonial-person small {
+    display: block;
+    margin-top: 7px;
+    color: rgba(255, 255, 255, 0.56);
+    line-height: 1.5;
+}
+
+.alumni-testimonial-quote {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 42px clamp(34px, 5vw, 68px);
+}
+
+.alumni-testimonial-quote-icon {
+    width: 42px;
+    height: 42px;
+    color: #f0b43a;
+}
+
+.alumni-testimonial-quote blockquote {
+    margin: 14px 0 0;
+    color: #22354f;
+    font-size: clamp(1.25rem, 2.1vw, 1.7rem);
+    font-weight: 650;
+    line-height: 1.58;
+    letter-spacing: -0.018em;
+}
+
+.alumni-testimonial-note {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 26px;
+}
+
+.alumni-testimonial-note span {
+    flex: 0 0 auto;
+    width: 42px;
+    height: 3px;
+    border-radius: 999px;
+    background: #2b679c;
+}
+
+.alumni-testimonial-note p {
+    margin: 0;
+    color: #748398;
+    font-size: 0.85rem;
+    line-height: 1.55;
+}
+
+.alumni-testimonials-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: 18px;
+}
+
+.alumni-testimonials-footer > p {
+    margin: 0;
+    color: #7a8798;
+    font-size: 0.84rem;
+}
+
+.alumni-testimonials-dots {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.alumni-testimonial-dot {
+    width: 9px;
+    height: 9px;
+    padding: 0;
+    border: 0;
+    border-radius: 999px;
+    background: #c8d4e2;
+    cursor: pointer;
+    transition: width 0.22s ease, background 0.22s ease;
+}
+
+.alumni-testimonial-dot.is-active {
+    width: 30px;
+    background: #1e6fc1;
+}
+
+@keyframes alumniTestimonialIn {
+    from {
+        opacity: 0;
+        transform: translateX(14px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
 @media (max-width: 1180px) {
     .navbar {
         width: min(var(--container), calc(100% - 32px));
@@ -2226,6 +2577,22 @@ a {
 }
 
 @media (max-width: 1080px) {
+    .alumni-testimonial-slide {
+        grid-template-columns: 1fr;
+    }
+
+    .alumni-testimonials-window,
+    .alumni-testimonial-slide {
+        min-height: 0;
+    }
+
+    .alumni-testimonial-profile {
+        border-right: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    }
+}
+
+@media (max-width: 1080px) {
     .footer-main {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
@@ -2271,12 +2638,6 @@ a {
         min-height: 330px;
     }
 
-    .outcomes-grid,
-    .outcome-card-feature,
-    .outcome-competency-grid {
-        grid-template-columns: 1fr;
-    }
-
     .news-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
@@ -2287,6 +2648,24 @@ a {
 }
 
 @media (max-width: 860px) {
+    .alumni-testimonials-section {
+        padding: 68px 0 72px;
+    }
+
+    .alumni-testimonials-heading {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .alumni-testimonial-profile {
+        padding: 30px;
+    }
+
+    .alumni-testimonial-quote {
+        padding: 34px 30px 38px;
+    }
+
     .program-profile-section {
         padding: 72px 0 62px;
     }
@@ -2312,14 +2691,6 @@ a {
 
     .facility-card-featured {
         grid-column: auto;
-    }
-
-    .outcomes-section {
-        padding: 72px 0 24px;
-    }
-
-    .outcomes-heading {
-        margin-bottom: 28px;
     }
 
     .news-section {
@@ -2358,6 +2729,62 @@ a {
 }
 
 @media (max-width: 640px) {
+    .alumni-testimonials-section {
+        padding: 58px 0 64px;
+    }
+
+    .alumni-testimonials-title {
+        font-size: clamp(2rem, 10vw, 2.7rem);
+    }
+
+    .alumni-testimonials-controls {
+        width: 100%;
+        justify-content: flex-end;
+    }
+
+    .alumni-testimonial-control {
+        width: 44px;
+        height: 44px;
+    }
+
+    .alumni-testimonials-window {
+        border-radius: 20px;
+    }
+
+    .alumni-testimonial-profile {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 16px;
+        padding: 24px;
+    }
+
+    .alumni-testimonial-avatar {
+        width: 88px;
+        height: 88px;
+    }
+
+    .alumni-testimonial-quote {
+        padding: 28px 24px 32px;
+    }
+
+    .alumni-testimonial-quote blockquote {
+        font-size: 1.15rem;
+        line-height: 1.62;
+    }
+
+    .alumni-testimonial-note {
+        align-items: flex-start;
+    }
+
+    .alumni-testimonial-note span {
+        margin-top: 8px;
+    }
+
+    .alumni-testimonials-footer {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
     .footer-main {
         grid-template-columns: 1fr;
         gap: 30px;
@@ -2372,11 +2799,29 @@ a {
         padding: 18px 0;
     }
 
+    .floating-actions {
+        right: 14px;
+        bottom: 14px;
+        gap: 8px;
+    }
+
+    .floating-pmb {
+        min-height: 46px;
+        padding: 0 14px;
+        font-size: 0.8rem;
+    }
+
+    .floating-pmb svg {
+        width: 20px;
+        height: 20px;
+    }
+
     .back-to-top {
-        right: 16px;
-        bottom: 16px;
-        width: 44px;
-        height: 44px;
+        height: 46px;
+    }
+
+    .back-to-top.is-visible {
+        width: 46px;
     }
 
     .container {
@@ -2424,19 +2869,13 @@ a {
     }
 
     .nav-actions {
-        display: grid;
-        grid-template-columns: 44px minmax(0, 1fr);
-        align-items: center;
+        display: flex;
+        justify-content: flex-end;
     }
 
     .nav-search-toggle {
         width: 44px;
         height: 44px;
-    }
-
-    .nav-cta {
-        width: 100%;
-        min-height: 44px;
     }
 
     .nav-search-panel {
@@ -2468,8 +2907,7 @@ a {
         align-items: stretch;
     }
 
-    .btn,
-    .nav-cta {
+    .btn {
         width: 100%;
     }
 

@@ -109,8 +109,29 @@
     </div>
 </footer>
 
-<a href="#hero-section" class="back-to-top" aria-label="Kembali ke bagian atas" title="Kembali ke atas">&uarr;</a>
+<div class="floating-actions" aria-label="Aksi cepat">
+    <a
+        href="https://pmb.ampta.ac.id/"
+        class="floating-pmb"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Daftar mahasiswa baru melalui Portal PMB"
+        title="Daftar PMB"
+    >
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="5" y="4.5" width="14" height="16" rx="3" fill="none" stroke="currentColor" stroke-width="1.9"></rect>
+            <path d="M9 4.5V3.8A1.8 1.8 0 0 1 10.8 2h2.4A1.8 1.8 0 0 1 15 3.8v.7M12 9v7M8.5 12.5h7" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"></path>
+        </svg>
+        <span>Daftar PMB</span>
+    </a>
 
-<script src="<?= htmlspecialchars($appConfig['url']) ?>/assets/js/app.js?v=20260714-header"></script>
+    <a href="#hero-section" class="back-to-top" aria-label="Kembali ke bagian atas" title="Kembali ke atas" aria-hidden="true" tabindex="-1">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="m6 14 6-6 6 6" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+    </a>
+</div>
+
+<script src="<?= htmlspecialchars($appConfig['url']) ?>/assets/js/app.js?v=20260714-alumni-pmb"></script>
 </body>
 </html>
