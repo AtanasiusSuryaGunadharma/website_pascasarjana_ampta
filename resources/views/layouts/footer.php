@@ -42,10 +42,6 @@
                     Jl. Laksda Adisucipto KM 6, Caturtunggal, Depok, Sleman 55281, Indonesia
                 </p>
                 <p>
-                    <span class="footer-contact-label">Telepon</span>
-                    <a href="tel:+62274485115">+62 274 485115</a>
-                </p>
-                <p>
                     <span class="footer-contact-label">WhatsApp PMB</span>
                     <a href="https://wa.me/6288215435648" target="_blank" rel="noopener noreferrer">0882-1543-5648</a>
                 </p>
