@@ -37,7 +37,8 @@
             <a href="<?= htmlspecialchars($appConfig['url']) ?>/">Beranda</a>
             <a href="#program-profile">Profil Program</a>
             <a href="#fasilitas">Fasilitas</a>
-            <a href="#alumni-insight">Alumni &amp; Prospek</a>
+            <a href="#publikasi-prospek">Publikasi &amp; Prospek</a>
+            <a href="#alumni-testimonials">Alumni</a>
             <a href="#informasi-kegiatan">Informasi &amp; Kegiatan</a>
         </nav>
 
@@ -132,6 +133,6 @@
     </a>
 </div>
 
-<script src="<?= htmlspecialchars($appConfig['url']) ?>/assets/js/app.js?v=20260714-alumni-pmb"></script>
+<script src="<?= htmlspecialchars($appConfig['url']) ?>/assets/js/app.js?v=20260714-outcomes-alumni"></script>
 </body>
 </html>

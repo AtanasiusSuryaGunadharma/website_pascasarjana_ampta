@@ -41,6 +41,28 @@ $careerItems = [
 ];
 
 
+$alumniTestimonials = [
+    [
+        'name' => 'Nadia Pramesti, M.Tr.Par.',
+        'role' => 'Destination Development Associate',
+        'meta' => 'Alumni Magister Terapan Pariwisata',
+        'image' => '260428110348698.jpeg',
+        'initials' => 'NP',
+        'quote' => 'Perkuliahan memberi saya wawasan yang lebih strategis dalam merancang program pengembangan destinasi dan memahami kebutuhan industri secara lebih nyata.',
+        'highlight' => 'Pembelajaran terapan, kolaborasi, dan perspektif industri.',
+    ],
+    [
+        'name' => 'Raka Aditya, M.Tr.Par.',
+        'role' => 'Hospitality Development Professional',
+        'meta' => 'Alumni Pascasarjana STP AMPTA',
+        'image' => null,
+        'initials' => 'RA',
+        'quote' => 'Diskusi akademik dan studi kasus membantu saya menghubungkan teori dengan persoalan nyata di bidang hospitality, sehingga lebih siap mengambil keputusan profesional.',
+        'highlight' => 'Pengalaman belajar yang relevan dengan kebutuhan dunia kerja.',
+    ],
+];
+
+
 $facilities = [
     [
         'name' => 'Ruang Kelas & Diskusi Pascasarjana',
@@ -317,64 +339,45 @@ require BASE_PATH . '/resources/views/layouts/navbar.php';
         </div>
     </section>
 
-    <section class="outcomes-section" id="alumni-insight">
+    <section class="outcomes-section" id="publikasi-prospek">
         <div class="outcomes-glow outcomes-glow-one"></div>
         <div class="outcomes-glow outcomes-glow-two"></div>
 
         <div class="container outcomes-wrap">
             <div class="outcomes-heading">
-                <p class="outcomes-kicker">Alumni & Prospek</p>
-                <h2 class="outcomes-title">Cerita lulusan, publikasi, dan kompetensi yang siap terhubung ke dunia kerja.</h2>
+                <div class="outcomes-heading-copy">
+                    <p class="outcomes-kicker">Publikasi & Arah Lulusan</p>
+                    <h2 class="outcomes-title">Riset terapan yang memperkuat kompetensi dan prospek karier.</h2>
+                </div>
+
                 <p class="outcomes-description">
-                    Section ini masih berupa dummy tampilan untuk beranda. Nantinya informasi alumni, publikasi,
-                    kompetensi lulusan, dan prospek kerja bisa diarahkan ke halaman khusus yang lebih lengkap.
+                    Publikasi, kompetensi utama, dan peluang karier disajikan dalam satu baris yang ringkas agar
+                    informasi akademik tetap utuh tanpa bercampur dengan bagian testimoni alumni.
                 </p>
             </div>
 
             <div class="outcomes-grid">
-                <article class="outcome-card outcome-card-feature">
-                    <div class="outcome-feature-media">
-                        <img
-                            src="<?= htmlspecialchars($appConfig['url']) ?>/assets/images/260428110348698.jpeg"
-                            alt="Foto dummy alumni Pascasarjana STP AMPTA"
-                            class="outcome-feature-image"
-                        >
-                        <span class="outcome-media-chip">Testimoni Alumni</span>
-                    </div>
-
-                    <div class="outcome-feature-content">
-                        <p class="outcome-card-kicker">Alumni</p>
-                        <h3 class="outcome-card-title">Lulusan yang siap berkembang di sektor pariwisata dan hospitality.</h3>
-                        <p class="outcome-card-text outcome-quote">
-                            “Perkuliahan memberi saya wawasan yang lebih strategis dalam merancang program pengembangan destinasi
-                            dan memahami kebutuhan industri secara lebih nyata.”
-                        </p>
-
-                        <div class="outcome-profile-meta">
-                            <strong>Nadia Pramesti, M.Tr.Par.</strong>
-                            <span>Alumni Pascasarjana STP AMPTA • Destination Development Associate</span>
-                        </div>
-
-                        <div class="outcome-actions">
-                            <a href="<?= htmlspecialchars($appConfig['url']) ?>/alumni" class="outcome-read-more">
-                                Read More <span aria-hidden="true">&rarr;</span>
-                            </a>
-                        </div>
-                    </div>
-                </article>
-
                 <article class="outcome-card outcome-card-publication">
+                    <div class="outcome-card-topline">
+                        <span class="outcome-card-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M6 3.5h9l3 3v14H6z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"></path>
+                                <path d="M15 3.5v3h3M9 11h6M9 14.5h6M9 18h4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
+                            </svg>
+                        </span>
+                        <span class="outcome-card-number">01</span>
+                    </div>
+
                     <p class="outcome-card-kicker">Publikasi</p>
-                    <h3 class="outcome-card-title">Contoh highlight publikasi riset mahasiswa dan alumni.</h3>
+                    <h3 class="outcome-card-title">Highlight riset mahasiswa dan lulusan.</h3>
                     <p class="outcome-card-text">
-                        Tema riset dapat mencakup pengembangan destinasi, hospitality, ekonomi kreatif,
-                        hingga inovasi layanan berbasis kebutuhan wisatawan.
+                        Kajian berfokus pada pengembangan destinasi, hospitality, ekonomi kreatif, dan inovasi layanan pariwisata.
                     </p>
 
                     <div class="publication-preview">
                         <span class="publication-badge">Research Highlight</span>
                         <strong>Strategi Pengembangan Destinasi Wisata Berkelanjutan Berbasis Kolaborasi Stakeholder</strong>
-                        <p>Jurnal Pariwisata Terapan • 2026 • Dummy preview untuk halaman beranda.</p>
+                        <p>Jurnal Pariwisata Terapan • 2026 • Pratinjau konten publikasi.</p>
                         <div class="publication-lines" aria-hidden="true">
                             <span></span>
                             <span></span>
@@ -385,15 +388,28 @@ require BASE_PATH . '/resources/views/layouts/navbar.php';
 
                     <div class="outcome-actions outcome-actions-publication">
                         <a href="<?= htmlspecialchars($appConfig['url']) ?>/publikasi" class="outcome-read-more outcome-read-more-secondary">
-                            Read More <span aria-hidden="true">&rarr;</span>
+                            Lihat Publikasi <span aria-hidden="true">&rarr;</span>
                         </a>
                     </div>
                 </article>
 
                 <article class="outcome-card outcome-card-competency">
+                    <div class="outcome-card-topline">
+                        <span class="outcome-card-icon outcome-card-icon-blue" aria-hidden="true">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M5 19.5v-3.2M10 19.5v-6.7M15 19.5V9.2M20 19.5V5" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"></path>
+                                <path d="m5 11.5 4.3-3.4 4 1.4L20 4.2" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"></path>
+                            </svg>
+                        </span>
+                        <span class="outcome-card-number">02</span>
+                    </div>
+
                     <div class="outcome-competency-head">
                         <p class="outcome-card-kicker">Kompetensi & Prospek Kerja</p>
-                        <h3 class="outcome-card-title">Satu ringkasan yang menjelaskan bekal lulusan dan arah kariernya.</h3>
+                        <h3 class="outcome-card-title">Bekal akademik yang terhubung dengan arah karier profesional.</h3>
+                        <p class="outcome-card-text">
+                            Kompetensi inti dan peluang kerja dirangkum berdampingan agar calon mahasiswa dapat melihat hubungan antara proses belajar dan tujuan karier.
+                        </p>
                     </div>
 
                     <div class="outcome-competency-grid">
@@ -406,7 +422,7 @@ require BASE_PATH . '/resources/views/layouts/navbar.php';
                             </ul>
                         </div>
 
-                        <div class="outcome-competency-block">
+                        <div class="outcome-competency-block outcome-competency-block-career">
                             <h4>Prospek Karier</h4>
                             <ul class="outcome-list outcome-list-career">
                                 <?php foreach ($careerItems as $item): ?>
@@ -466,6 +482,92 @@ require BASE_PATH . '/resources/views/layouts/navbar.php';
                         </div>
                     </article>
                 <?php endforeach; ?>
+            </div>
+        </div>
+    </section>
+
+    <section class="alumni-testimonials-section" id="alumni-testimonials" data-testimonial-carousel>
+        <div class="alumni-testimonials-orb alumni-testimonials-orb-one" aria-hidden="true"></div>
+        <div class="alumni-testimonials-orb alumni-testimonials-orb-two" aria-hidden="true"></div>
+
+        <div class="container alumni-testimonials-wrap">
+            <div class="alumni-testimonials-heading">
+                <div class="alumni-testimonials-copy">
+                    <p class="alumni-testimonials-kicker">Apa Kata Alumni?</p>
+                    <h2 class="alumni-testimonials-title">Cerita pengalaman belajar dari para lulusan.</h2>
+                    <p class="alumni-testimonials-description">
+                        Bagian alumni ditempatkan tersendiri di akhir halaman agar testimoni lebih fokus dan tidak bercampur dengan informasi publikasi maupun prospek kerja.
+                    </p>
+                </div>
+
+                <div class="alumni-testimonials-controls" aria-label="Kontrol testimoni alumni">
+                    <button type="button" class="alumni-testimonial-control" data-testimonial-prev aria-label="Testimoni sebelumnya">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="m15 6-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                    </button>
+                    <button type="button" class="alumni-testimonial-control" data-testimonial-next aria-label="Testimoni berikutnya">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="m9 6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <div class="alumni-testimonials-window">
+                <?php foreach ($alumniTestimonials as $index => $testimonial): ?>
+                    <article
+                        class="alumni-testimonial-slide <?= $index === 0 ? 'is-active' : '' ?>"
+                        data-testimonial-slide
+                        aria-hidden="<?= $index === 0 ? 'false' : 'true' ?>"
+                    >
+                        <div class="alumni-testimonial-profile">
+                            <?php if (!empty($testimonial['image'])): ?>
+                                <img
+                                    src="<?= htmlspecialchars($appConfig['url']) ?>/assets/images/<?= htmlspecialchars($testimonial['image']) ?>"
+                                    alt="Foto <?= htmlspecialchars($testimonial['name']) ?>"
+                                    class="alumni-testimonial-avatar"
+                                >
+                            <?php else: ?>
+                                <span class="alumni-testimonial-avatar alumni-testimonial-avatar-initials" aria-hidden="true">
+                                    <?= htmlspecialchars($testimonial['initials']) ?>
+                                </span>
+                            <?php endif; ?>
+                            <div class="alumni-testimonial-person">
+                                <span class="alumni-testimonial-chip">Alumni Pascasarjana</span>
+                                <h3><?= htmlspecialchars($testimonial['name']) ?></h3>
+                                <p><?= htmlspecialchars($testimonial['role']) ?></p>
+                                <small><?= htmlspecialchars($testimonial['meta']) ?></small>
+                            </div>
+                        </div>
+
+                        <div class="alumni-testimonial-quote">
+                            <svg class="alumni-testimonial-quote-icon" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M5.5 11.5h4.2v7H3.8v-5.1c0-4.2 1.9-6.9 5.7-8.1v2.9c-2 .8-3.2 1.9-4 3.3Zm10.1 0h4.2v7h-5.9v-5.1c0-4.2 1.9-6.9 5.7-8.1v2.9c-2 .8-3.2 1.9-4 3.3Z" fill="currentColor"></path>
+                            </svg>
+                            <blockquote>“<?= htmlspecialchars($testimonial['quote']) ?>”</blockquote>
+                            <div class="alumni-testimonial-note">
+                                <span aria-hidden="true"></span>
+                                <p><?= htmlspecialchars($testimonial['highlight']) ?></p>
+                            </div>
+                        </div>
+                    </article>
+                <?php endforeach; ?>
+            </div>
+
+            <div class="alumni-testimonials-footer">
+                <p>Testimoni pada prototype dapat diperbarui melalui data alumni resmi.</p>
+                <div class="alumni-testimonials-dots" aria-label="Pilih testimoni alumni">
+                    <?php foreach ($alumniTestimonials as $index => $testimonial): ?>
+                        <button
+                            type="button"
+                            class="alumni-testimonial-dot <?= $index === 0 ? 'is-active' : '' ?>"
+                            data-testimonial-dot
+                            aria-label="Tampilkan testimoni <?= $index + 1 ?>"
+                            aria-current="<?= $index === 0 ? 'true' : 'false' ?>"
+                        ></button>
+                    <?php endforeach; ?>
+                </div>
             </div>
         </div>
     </section>
