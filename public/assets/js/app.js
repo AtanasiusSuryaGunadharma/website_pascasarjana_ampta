@@ -1,4 +1,105 @@
 document.addEventListener("DOMContentLoaded", function () {
+    const navToggle = document.querySelector("[data-nav-toggle]");
+    const navContent = document.querySelector("[data-nav-content]");
+    const searchToggle = document.querySelector("[data-search-toggle]");
+    const searchPanel = document.querySelector("[data-search-panel]");
+    const searchForm = document.querySelector("[data-site-search]");
+    const searchInput = document.querySelector("[data-search-input]");
+    const searchStatus = document.querySelector("[data-search-status]");
+
+    function closeSearch() {
+        if (!searchToggle || !searchPanel) return;
+        searchPanel.hidden = true;
+        searchToggle.setAttribute("aria-expanded", "false");
+        searchToggle.setAttribute("aria-label", "Buka pencarian");
+    }
+
+    function closeNavigation() {
+        if (!navToggle || !navContent) return;
+        navContent.classList.remove("is-open");
+        navToggle.setAttribute("aria-expanded", "false");
+        navToggle.setAttribute("aria-label", "Buka navigasi");
+    }
+
+    navToggle?.addEventListener("click", function () {
+        const willOpen = !navContent?.classList.contains("is-open");
+        navContent?.classList.toggle("is-open", willOpen);
+        navToggle.setAttribute("aria-expanded", willOpen ? "true" : "false");
+        navToggle.setAttribute("aria-label", willOpen ? "Tutup navigasi" : "Buka navigasi");
+        if (!willOpen) closeSearch();
+    });
+
+    searchToggle?.addEventListener("click", function () {
+        if (!searchPanel) return;
+        const willOpen = searchPanel.hidden;
+        searchPanel.hidden = !willOpen;
+        searchToggle.setAttribute("aria-expanded", willOpen ? "true" : "false");
+        searchToggle.setAttribute("aria-label", willOpen ? "Tutup pencarian" : "Buka pencarian");
+        if (willOpen) {
+            window.setTimeout(() => searchInput?.focus(), 50);
+        }
+    });
+
+    searchForm?.addEventListener("submit", function (event) {
+        event.preventDefault();
+        const query = searchInput?.value.trim().toLocaleLowerCase("id-ID") ?? "";
+
+        document.querySelectorAll(".site-search-highlight").forEach((element) => {
+            element.classList.remove("site-search-highlight");
+        });
+
+        if (query.length < 2) {
+            if (searchStatus) searchStatus.textContent = "Masukkan minimal 2 karakter untuk melakukan pencarian.";
+            searchInput?.focus();
+            return;
+        }
+
+        const searchTargets = Array.from(document.querySelectorAll(
+            "main h1, main h2, main h3, main p, main a, .site-footer h3, .site-footer p, .site-footer a"
+        ));
+        const match = searchTargets.find((element) =>
+            element.textContent?.trim().toLocaleLowerCase("id-ID").includes(query)
+        );
+
+        if (!match) {
+            if (searchStatus) searchStatus.textContent = `Informasi “${searchInput?.value.trim()}” belum ditemukan pada halaman ini.`;
+            return;
+        }
+
+        if (searchStatus) searchStatus.textContent = `Hasil ditemukan. Mengarahkan ke bagian terkait…`;
+        closeSearch();
+        closeNavigation();
+        match.classList.add("site-search-highlight");
+        match.scrollIntoView({ behavior: "smooth", block: "center" });
+        window.setTimeout(() => match.classList.remove("site-search-highlight"), 2300);
+    });
+
+    navContent?.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", function () {
+            if (window.matchMedia("(max-width: 1180px)").matches) closeNavigation();
+            closeSearch();
+        });
+    });
+
+    document.addEventListener("click", function (event) {
+        const target = event.target;
+        if (!(target instanceof Node)) return;
+        if (searchPanel && searchToggle && !searchPanel.contains(target) && !searchToggle.contains(target)) {
+            closeSearch();
+        }
+    });
+
+    document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") {
+            closeSearch();
+            closeNavigation();
+        }
+    });
+
+    window.addEventListener("resize", function () {
+        if (!window.matchMedia("(max-width: 1180px)").matches) closeNavigation();
+    });
+
     const carousel = document.querySelector("[data-carousel]");
 
     if (carousel) {

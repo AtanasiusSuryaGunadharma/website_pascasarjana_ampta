@@ -111,6 +111,6 @@
 
 <a href="#hero-section" class="back-to-top" aria-label="Kembali ke bagian atas" title="Kembali ke atas">&uarr;</a>
 
-<script src="<?= htmlspecialchars($appConfig['url']) ?>/assets/js/app.js"></script>
+<script src="<?= htmlspecialchars($appConfig['url']) ?>/assets/js/app.js?v=20260714-header"></script>
 </body>
 </html>
