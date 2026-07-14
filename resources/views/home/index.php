@@ -297,10 +297,6 @@ require BASE_PATH . '/resources/views/layouts/navbar.php';
                 <div class="facilities-heading-copy">
                     <p class="facilities-kicker">Fasilitas Pendukung</p>
                     <h2 class="facilities-title">Ruang belajar yang mendukung pengalaman akademik terapan.</h2>
-                    <p class="facilities-description">
-                        Contoh ringkas fasilitas Pascasarjana STP AMPTA. Informasi lengkap nantinya dapat ditampilkan
-                        pada halaman khusus fasilitas beserta galeri dan detail penggunaannya.
-                    </p>
                 </div>
 
                 <a href="<?= htmlspecialchars($appConfig['url']) ?>/fasilitas" class="facilities-view-all">
@@ -349,11 +345,6 @@ require BASE_PATH . '/resources/views/layouts/navbar.php';
                     <p class="outcomes-kicker">Publikasi & Arah Lulusan</p>
                     <h2 class="outcomes-title">Riset terapan yang memperkuat kompetensi dan prospek karier.</h2>
                 </div>
-
-                <p class="outcomes-description">
-                    Publikasi, kompetensi utama, dan peluang karier disajikan dalam satu baris yang ringkas agar
-                    informasi akademik tetap utuh tanpa bercampur dengan bagian testimoni alumni.
-                </p>
             </div>
 
             <div class="outcomes-grid">
@@ -446,7 +437,7 @@ require BASE_PATH . '/resources/views/layouts/navbar.php';
                     <p class="news-kicker">Informasi & Kegiatan</p>
                     <h2 class="news-title">Kabar terbaru dari Pascasarjana STP AMPTA.</h2>
                     <p class="news-description">
-                        Ringkasan berita, agenda akademik, informasi PMB, dan kegiatan kolaboratif yang dapat dibaca lebih lengkap pada halaman khusus.
+                        Ringkasan berita, agenda akademik, informasi PMB, dan kegiatan kolaboratif yang dapat dibaca lebih lengkap pada halaman dibawah.
                     </p>
                 </div>
 
@@ -495,9 +486,6 @@ require BASE_PATH . '/resources/views/layouts/navbar.php';
                 <div class="alumni-testimonials-copy">
                     <p class="alumni-testimonials-kicker">Apa Kata Alumni?</p>
                     <h2 class="alumni-testimonials-title">Cerita pengalaman belajar dari para lulusan.</h2>
-                    <p class="alumni-testimonials-description">
-                        Bagian alumni ditempatkan tersendiri di akhir halaman agar testimoni lebih fokus dan tidak bercampur dengan informasi publikasi maupun prospek kerja.
-                    </p>
                 </div>
 
                 <div class="alumni-testimonials-controls" aria-label="Kontrol testimoni alumni">
@@ -556,7 +544,6 @@ require BASE_PATH . '/resources/views/layouts/navbar.php';
             </div>
 
             <div class="alumni-testimonials-footer">
-                <p>Testimoni pada prototype dapat diperbarui melalui data alumni resmi.</p>
                 <div class="alumni-testimonials-dots" aria-label="Pilih testimoni alumni">
                     <?php foreach ($alumniTestimonials as $index => $testimonial): ?>
                         <button
