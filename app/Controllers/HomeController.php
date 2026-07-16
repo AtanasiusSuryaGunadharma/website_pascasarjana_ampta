@@ -15,6 +15,7 @@ final class HomeController
         $appConfig = require BASE_PATH . '/config/app.php';
 
         $pageTitle = 'Beranda';
+        $currentPage = 'home';
         $siteName = $appConfig['name'];
         $tagline = 'Program Pascasarjana Pariwisata dan Perhotelan';
         $databaseConnected = false;

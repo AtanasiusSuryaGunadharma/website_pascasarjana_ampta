@@ -35,11 +35,12 @@
         <nav class="footer-column" aria-label="Navigasi footer">
             <h3>Navigasi</h3>
             <a href="<?= htmlspecialchars($appConfig['url']) ?>/">Beranda</a>
-            <a href="#program-profile">Profil Program</a>
-            <a href="#fasilitas">Fasilitas</a>
-            <a href="#publikasi-prospek">Publikasi &amp; Prospek</a>
-            <a href="#alumni-testimonials">Alumni</a>
-            <a href="#informasi-kegiatan">Informasi &amp; Kegiatan</a>
+            <a href="<?= htmlspecialchars($appConfig['url']) ?>/#program-profile">Profil Program</a>
+            <a href="<?= htmlspecialchars($appConfig['url']) ?>/#fasilitas">Fasilitas</a>
+            <a href="<?= htmlspecialchars($appConfig['url']) ?>/#publikasi-prospek">Publikasi &amp; Prospek</a>
+            <a href="<?= htmlspecialchars($appConfig['url']) ?>/#alumni-testimonials">Alumni</a>
+            <a href="<?= htmlspecialchars($appConfig['url']) ?>/#informasi-kegiatan">Informasi &amp; Kegiatan</a>
+            <a href="<?= htmlspecialchars($appConfig['url']) ?>/dosen">Dosen</a>
         </nav>
 
         <nav class="footer-column" aria-label="Website Lainnya">
@@ -126,13 +127,13 @@
         <span>Daftar PMB</span>
     </a>
 
-    <a href="#hero-section" class="back-to-top" aria-label="Kembali ke bagian atas" title="Kembali ke atas" aria-hidden="true" tabindex="-1">
+    <a href="#top" class="back-to-top" aria-label="Kembali ke bagian atas" title="Kembali ke atas" aria-hidden="true" tabindex="-1">
         <svg viewBox="0 0 24 24" aria-hidden="true">
             <path d="m6 14 6-6 6 6" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"></path>
         </svg>
     </a>
 </div>
 
-<script src="<?= htmlspecialchars($appConfig['url']) ?>/assets/js/app.js?v=20260714-outcomes-alumni"></script>
+<script src="<?= htmlspecialchars($appConfig['url']) ?>/assets/js/app.js?v=20260716-lecturers"></script>
 </body>
 </html>

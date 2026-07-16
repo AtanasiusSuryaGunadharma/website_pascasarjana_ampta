@@ -1,3 +1,4 @@
+<?php $currentPage = $currentPage ?? 'home'; ?>
 <header class="site-header">
     <div class="container navbar">
         <a class="brand" href="<?= htmlspecialchars($appConfig['url']) ?>/" aria-label="Pascasarjana STP AMPTA - Beranda">
@@ -27,12 +28,12 @@
 
         <div class="nav-content" id="primary-navigation-wrap" data-nav-content>
             <nav class="nav-menu" aria-label="Navigasi utama">
-                <a class="is-active" href="<?= htmlspecialchars($appConfig['url']) ?>/#hero-section" aria-current="page">Beranda</a>
-                <a href="#program-profile">Profil</a>
-                <a href="#informasi-kegiatan">Info PMB</a>
-                <a href="#program-profile">Akademik</a>
-                <a href="#fasilitas">Layanan</a>
-                <a href="https://www.ampta.ac.id/read/halaman/26" target="_blank" rel="noopener noreferrer">Dosen</a>
+                <a class="<?= $currentPage === 'home' ? 'is-active' : '' ?>" href="<?= htmlspecialchars($appConfig['url']) ?>/#hero-section" <?= $currentPage === 'home' ? 'aria-current="page"' : '' ?>>Beranda</a>
+                <a href="<?= htmlspecialchars($appConfig['url']) ?>/#program-profile">Profil</a>
+                <a href="<?= htmlspecialchars($appConfig['url']) ?>/#informasi-kegiatan">Info PMB</a>
+                <a href="<?= htmlspecialchars($appConfig['url']) ?>/#program-profile">Akademik</a>
+                <a href="<?= htmlspecialchars($appConfig['url']) ?>/#fasilitas">Layanan</a>
+                <a class="<?= $currentPage === 'lecturers' ? 'is-active' : '' ?>" href="<?= htmlspecialchars($appConfig['url']) ?>/dosen" <?= $currentPage === 'lecturers' ? 'aria-current="page"' : '' ?>>Dosen</a>
                 <a href="#site-footer">Kontak</a>
             </nav>
 

@@ -243,13 +243,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const backToTop = document.querySelector(".back-to-top");
     const programProfile = document.querySelector("#program-profile");
+    const pageStart = document.querySelector("#top");
+    const backToTopTrigger = programProfile || document.querySelector(".lecturer-directory");
     const siteHeader = document.querySelector(".site-header");
 
-    if (backToTop && programProfile) {
+    if (backToTop && backToTopTrigger) {
         function updateBackToTopVisibility() {
             const headerHeight = siteHeader?.offsetHeight ?? 0;
-            const programProfileTop = programProfile.getBoundingClientRect().top + window.scrollY - headerHeight;
-            const shouldShow = window.scrollY >= programProfileTop;
+            const triggerTop = backToTopTrigger.getBoundingClientRect().top + window.scrollY - headerHeight;
+            const shouldShow = window.scrollY >= triggerTop;
 
             backToTop.classList.toggle("is-visible", shouldShow);
             backToTop.setAttribute("aria-hidden", shouldShow ? "false" : "true");
@@ -258,7 +260,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         backToTop.addEventListener("click", function (event) {
             event.preventDefault();
-            document.querySelector("#hero-section")?.scrollIntoView({
+            (document.querySelector("#hero-section") || pageStart)?.scrollIntoView({
                 behavior: "smooth",
                 block: "start",
             });
@@ -267,5 +269,32 @@ document.addEventListener("DOMContentLoaded", function () {
         window.addEventListener("scroll", updateBackToTopVisibility, { passive: true });
         window.addEventListener("resize", updateBackToTopVisibility);
         updateBackToTopVisibility();
+    }
+
+    const lecturerSearch = document.querySelector("[data-lecturer-search]");
+    const lecturerCards = Array.from(document.querySelectorAll("[data-lecturer-card]"));
+    const lecturerStatus = document.querySelector("[data-lecturer-status]");
+    const lecturerEmpty = document.querySelector("[data-lecturer-empty]");
+
+    if (lecturerSearch && lecturerCards.length > 0) {
+        lecturerSearch.addEventListener("input", function () {
+            const query = lecturerSearch.value.trim().toLocaleLowerCase("id-ID");
+            let visibleCount = 0;
+
+            lecturerCards.forEach((card) => {
+                const cardText = card.textContent?.toLocaleLowerCase("id-ID") ?? "";
+                const isVisible = query === "" || cardText.includes(query);
+                card.hidden = !isVisible;
+                if (isVisible) visibleCount += 1;
+            });
+
+            if (lecturerStatus) {
+                lecturerStatus.textContent = query === ""
+                    ? `${visibleCount} profil dosen ditampilkan`
+                    : `${visibleCount} hasil untuk “${lecturerSearch.value.trim()}”`;
+            }
+
+            if (lecturerEmpty) lecturerEmpty.hidden = visibleCount !== 0;
+        });
     }
 });

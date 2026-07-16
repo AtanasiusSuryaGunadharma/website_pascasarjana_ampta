@@ -5,4 +5,10 @@ DirectoryIndex index.php
     RewriteBase /website_pascasarjana_ampta/
 
     RewriteRule ^(assets|images|js|vendor)/(.*)$ public/$1/$2 [L]
+
+    # Arahkan URL halaman seperti /dosen ke front controller PHP.
+    # File dan folder yang benar-benar ada tetap dilayani langsung oleh Apache.
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^ index.php [QSA,L]
 </IfModule>
