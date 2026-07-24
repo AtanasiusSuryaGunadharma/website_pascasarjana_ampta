@@ -322,6 +322,17 @@ a {
     background: #eefaf3;
 }
 
+.internal-recaptcha-wrap {
+    min-height: 78px;
+    overflow: hidden;
+    padding: 0;
+    border-radius: 11px;
+}
+
+.internal-recaptcha-wrap .g-recaptcha {
+    transform-origin: top left;
+}
+
 .internal-login-field {
     display: grid;
     gap: 8px;
@@ -703,6 +714,28 @@ a {
         justify-content: center;
         gap: 5px;
         text-align: center;
+    }
+}
+
+@media (max-width: 390px) {
+    .internal-recaptcha-wrap {
+        height: 66px;
+        min-height: 66px;
+    }
+
+    .internal-recaptcha-wrap .g-recaptcha {
+        transform: scale(0.84);
+    }
+}
+
+@media (max-width: 345px) {
+    .internal-recaptcha-wrap {
+        height: 61px;
+        min-height: 61px;
+    }
+
+    .internal-recaptcha-wrap .g-recaptcha {
+        transform: scale(0.78);
     }
 }
 

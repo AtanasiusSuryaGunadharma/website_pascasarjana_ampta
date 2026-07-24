@@ -6,6 +6,7 @@ namespace App\Controllers;
 
 use App\Core\Database;
 use App\Core\Session;
+use App\Services\RecaptchaVerifier;
 use PDO;
 use Throwable;
 
@@ -26,6 +27,9 @@ final class AuthController
         $errorMessage = Session::pullFlash('error');
         $successMessage = Session::pullFlash('success');
         $oldUsername = Session::pullFlash('old_username') ?? '';
+        /** @var array{site_key:string,secret_key:string,allowed_hostnames:list<string>,verify_url:string} $recaptchaConfig */
+        $recaptchaConfig = require BASE_PATH . '/config/recaptcha.php';
+        $recaptchaSiteKey = $recaptchaConfig['site_key'];
 
         require BASE_PATH . '/resources/views/internal/login.php';
     }
@@ -46,6 +50,18 @@ final class AuthController
 
         if ($username === '' || $password === '') {
             Session::flash('error', 'Username dan kata sandi wajib diisi.');
+            Session::flash('old_username', $username);
+            $this->redirect($loginUrl);
+        }
+
+        $recaptchaToken = (string) ($_POST['g-recaptcha-response'] ?? '');
+        $recaptchaIsValid = (new RecaptchaVerifier())->verify(
+            $recaptchaToken,
+            isset($_SERVER['REMOTE_ADDR']) ? (string) $_SERVER['REMOTE_ADDR'] : null
+        );
+
+        if (!$recaptchaIsValid) {
+            Session::flash('error', 'Verifikasi captcha gagal atau telah kedaluwarsa. Silakan centang kembali dan coba lagi.');
             Session::flash('old_username', $username);
             $this->redirect($loginUrl);
         }

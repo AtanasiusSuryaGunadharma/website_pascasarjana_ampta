@@ -6,6 +6,9 @@
     <meta name="robots" content="noindex, nofollow">
     <title><?= htmlspecialchars($pageTitle) ?> | <?= htmlspecialchars($siteName) ?></title>
     <link rel="stylesheet" href="<?= htmlspecialchars($appConfig['url']) ?>/assets/css/login.css?v=20260724-auth">
+    <?php if ($recaptchaSiteKey !== ''): ?>
+        <script src="https://www.google.com/recaptcha/api.js?hl=id" async defer></script>
+    <?php endif; ?>
 </head>
 <body class="internal-login-page">
     <header class="internal-login-topbar">
@@ -92,10 +95,19 @@
                         </span>
                     </label>
 
-                    <p class="internal-login-note">
-                        <span aria-hidden="true">i</span>
-                        Captcha keamanan akan ditambahkan setelah pengujian autentikasi selesai.
-                    </p>
+                    <?php if ($recaptchaSiteKey !== ''): ?>
+                        <div class="internal-recaptcha-wrap">
+                            <div
+                                class="g-recaptcha"
+                                data-sitekey="<?= htmlspecialchars($recaptchaSiteKey) ?>"
+                                data-theme="light"
+                            ></div>
+                        </div>
+                    <?php else: ?>
+                        <div class="internal-login-alert internal-login-alert-error" role="alert">
+                            Konfigurasi captcha belum tersedia. Hubungi pengelola sistem.
+                        </div>
+                    <?php endif; ?>
 
                     <button type="submit" class="internal-login-submit">Masuk ke Dalaman</button>
                 </form>
