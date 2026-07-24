@@ -5,6 +5,16 @@
   "installCommand": null,
   "outputDirectory": "public",
   "cleanUrls": true,
+  "rewrites": [
+    {
+      "source": "/dalaman",
+      "destination": "/dalaman/login.html"
+    },
+    {
+      "source": "/dalaman/login.php",
+      "destination": "/dalaman/login.html"
+    }
+  ],
   "redirects": [
     {
       "source": "/index.php",
