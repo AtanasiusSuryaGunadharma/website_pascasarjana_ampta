@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex, nofollow">
     <title><?= htmlspecialchars($pageTitle) ?> | <?= htmlspecialchars($siteName) ?></title>
-    <link rel="stylesheet" href="<?= htmlspecialchars($appConfig['url']) ?>/assets/css/login.css?v=20260724">
+    <link rel="stylesheet" href="<?= htmlspecialchars($appConfig['url']) ?>/assets/css/login.css?v=20260724-auth">
 </head>
 <body class="internal-login-page">
     <header class="internal-login-topbar">
@@ -46,12 +46,40 @@
                     <p>Gunakan akun internal Anda untuk melanjutkan.</p>
                 </div>
 
-                <form class="internal-login-form" data-login-demo>
+                <form
+                    class="internal-login-form"
+                    method="post"
+                    action="<?= htmlspecialchars($appConfig['url']) ?>/dalaman/login"
+                    data-login-form
+                >
+                    <input type="hidden" name="_token" value="<?= htmlspecialchars($csrfToken) ?>">
+
+                    <?php if ($errorMessage !== null): ?>
+                        <div class="internal-login-alert internal-login-alert-error" role="alert">
+                            <?= htmlspecialchars($errorMessage) ?>
+                        </div>
+                    <?php endif; ?>
+
+                    <?php if ($successMessage !== null): ?>
+                        <div class="internal-login-alert internal-login-alert-success" role="status">
+                            <?= htmlspecialchars($successMessage) ?>
+                        </div>
+                    <?php endif; ?>
+
                     <label class="internal-login-field">
                         <span>Username</span>
                         <span class="internal-login-input-wrap">
                             <span class="internal-login-input-icon" aria-hidden="true">@</span>
-                            <input type="text" name="username" placeholder="Masukkan username" autocomplete="username" required>
+                            <input
+                                type="text"
+                                name="username"
+                                value="<?= htmlspecialchars($oldUsername) ?>"
+                                placeholder="Masukkan username"
+                                autocomplete="username"
+                                maxlength="80"
+                                autofocus
+                                required
+                            >
                         </span>
                     </label>
 
@@ -64,27 +92,12 @@
                         </span>
                     </label>
 
-                    <div class="internal-captcha" role="group" aria-label="Verifikasi captcha tampilan">
-                        <button type="button" class="internal-captcha-check" aria-pressed="false" aria-label="Centang saya bukan robot" data-captcha-check>
-                            <span aria-hidden="true"></span>
-                        </button>
-                        <div class="internal-captcha-copy">
-                            <strong>Saya bukan robot</strong>
-                            <small>Verifikasi keamanan</small>
-                        </div>
-                        <div class="internal-captcha-brand" aria-hidden="true">
-                            <span></span>
-                            <small>CAPTCHA</small>
-                        </div>
-                    </div>
-
                     <p class="internal-login-note">
                         <span aria-hidden="true">i</span>
-                        Halaman ini masih berupa tampilan awal dan belum terhubung ke akun pengguna.
+                        Captcha keamanan akan ditambahkan setelah pengujian autentikasi selesai.
                     </p>
 
                     <button type="submit" class="internal-login-submit">Masuk ke Dalaman</button>
-                    <p class="internal-login-status" data-login-status aria-live="polite"></p>
                 </form>
             </div>
         </section>
@@ -95,6 +108,6 @@
         <span>Portal internal program pascasarjana</span>
     </footer>
 
-    <script src="<?= htmlspecialchars($appConfig['url']) ?>/assets/js/login.js?v=20260724"></script>
+    <script src="<?= htmlspecialchars($appConfig['url']) ?>/assets/js/login.js?v=20260724-auth"></script>
 </body>
 </html>

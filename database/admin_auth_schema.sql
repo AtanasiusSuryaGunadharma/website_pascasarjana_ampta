@@ -1,31 +1,11 @@
+-- Autentikasi Portal Dalaman Pascasarjana STP AMPTA
+-- Aman dijalankan ulang untuk kebutuhan pengembangan lokal.
+
 CREATE DATABASE IF NOT EXISTS pascasarjana_ampta
     CHARACTER SET utf8mb4
     COLLATE utf8mb4_unicode_ci;
 
 USE pascasarjana_ampta;
-
-DROP TABLE IF EXISTS test;
-
-CREATE TABLE IF NOT EXISTS site_settings (
-    id TINYINT UNSIGNED NOT NULL,
-    site_name VARCHAR(150) NOT NULL,
-    tagline VARCHAR(255) NOT NULL,
-    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    PRIMARY KEY (id)
-) ENGINE=InnoDB
-  DEFAULT CHARSET=utf8mb4
-  COLLATE=utf8mb4_unicode_ci;
-
-INSERT INTO site_settings (id, site_name, tagline)
-VALUES (
-    1,
-    'Pascasarjana STP AMPTA Yogyakarta',
-    'Program Pascasarjana Pariwisata dan Perhotelan'
-)
-ON DUPLICATE KEY UPDATE
-    site_name = VALUES(site_name),
-    tagline = VALUES(tagline);
 
 CREATE TABLE IF NOT EXISTS admin_users (
     id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -47,8 +27,20 @@ CREATE TABLE IF NOT EXISTS admin_users (
 
 INSERT INTO admin_users (name, username, password_hash, role, is_active)
 VALUES
-    ('Administrator AMPTA', 'admin', '$2y$10$JoCN87hEkJXxuU7kYqeXoO51urJ/MK7zJCWxxcFS3S8O9syAHVWlG', 'admin', 1),
-    ('Super Administrator AMPTA', 'superadmin', '$2y$10$/Qh75t/VOrrRr2v0djPJ8.qYpCF0ngnvzwyhKrX5EAO0HpdUjeDkC', 'super_admin', 1)
+    (
+        'Administrator AMPTA',
+        'admin',
+        '$2y$10$JoCN87hEkJXxuU7kYqeXoO51urJ/MK7zJCWxxcFS3S8O9syAHVWlG',
+        'admin',
+        1
+    ),
+    (
+        'Super Administrator AMPTA',
+        'superadmin',
+        '$2y$10$/Qh75t/VOrrRr2v0djPJ8.qYpCF0ngnvzwyhKrX5EAO0HpdUjeDkC',
+        'super_admin',
+        1
+    )
 ON DUPLICATE KEY UPDATE
     name = VALUES(name),
     password_hash = VALUES(password_hash),

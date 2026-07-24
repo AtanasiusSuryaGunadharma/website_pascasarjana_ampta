@@ -301,6 +301,27 @@ a {
     padding: 28px 36px 34px;
 }
 
+.internal-login-alert {
+    padding: 12px 14px;
+    border: 1px solid;
+    border-radius: 11px;
+    font-size: 0.79rem;
+    font-weight: 700;
+    line-height: 1.5;
+}
+
+.internal-login-alert-error {
+    border-color: #efc2c2;
+    color: #9b2929;
+    background: #fff0f0;
+}
+
+.internal-login-alert-success {
+    border-color: #b9dfcb;
+    color: #17613c;
+    background: #eefaf3;
+}
+
 .internal-login-field {
     display: grid;
     gap: 8px;
