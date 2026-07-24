@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex, nofollow">
     <title><?= htmlspecialchars($pageTitle) ?> | <?= htmlspecialchars($siteName) ?></title>
-    <link rel="stylesheet" href="<?= htmlspecialchars($appConfig['url']) ?>/assets/css/login.css?v=20260724-auth">
+    <link rel="stylesheet" href="<?= htmlspecialchars($appConfig['url']) ?>/assets/css/login.css?v=20260724-remember">
     <?php if ($recaptchaSiteKey !== ''): ?>
         <script src="https://www.google.com/recaptcha/api.js?hl=id" async defer></script>
     <?php endif; ?>
@@ -95,6 +95,17 @@
                         </span>
                     </label>
 
+                    <div class="internal-login-preferences">
+                        <label class="internal-remember-option">
+                            <input type="checkbox" name="remember_username" value="1" data-remember-username>
+                            <span class="internal-remember-box" aria-hidden="true"></span>
+                            <span>
+                                <strong>Ingat username &amp; kata sandi</strong>
+                                <small>Kata sandi disimpan aman oleh pengelola sandi browser</small>
+                            </span>
+                        </label>
+                    </div>
+
                     <?php if ($recaptchaSiteKey !== ''): ?>
                         <div class="internal-recaptcha-wrap">
                             <div
@@ -120,6 +131,6 @@
         <span>Portal internal program pascasarjana</span>
     </footer>
 
-    <script src="<?= htmlspecialchars($appConfig['url']) ?>/assets/js/login.js?v=20260724-auth"></script>
+    <script src="<?= htmlspecialchars($appConfig['url']) ?>/assets/js/login.js?v=20260724-remember"></script>
 </body>
 </html>
