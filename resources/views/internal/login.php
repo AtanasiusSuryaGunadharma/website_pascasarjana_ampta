@@ -37,7 +37,7 @@
                 <img src="<?= htmlspecialchars($appConfig['url']) ?>/assets/images/logo_bulat.png" alt="Logo STP AMPTA">
                 <div>
                     <p>Area Internal Pascasarjana</p>
-                    <h1 id="internal-login-title">Portal Dalaman</h1>
+                    <h1 id="internal-login-title">Portal Login</h1>
                     <span>STP AMPTA Yogyakarta</span>
                 </div>
             </div>
@@ -120,7 +120,7 @@
                         </div>
                     <?php endif; ?>
 
-                    <button type="submit" class="internal-login-submit">Masuk ke Dalaman</button>
+                    <button type="submit" class="internal-login-submit">Masuk ke Sistem</button>
                 </form>
             </div>
         </section>

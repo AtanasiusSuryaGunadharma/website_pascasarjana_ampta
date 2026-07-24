@@ -21,7 +21,7 @@ final class AuthController
             $this->redirect($appConfig['url'] . '/dalaman/dashboard');
         }
 
-        $pageTitle = 'Portal Dalaman';
+        $pageTitle = 'Portal Login';
         $siteName = $appConfig['name'];
         $csrfToken = Session::csrfToken();
         $errorMessage = Session::pullFlash('error');
@@ -129,7 +129,7 @@ final class AuthController
 
         session_destroy();
         Session::start();
-        Session::flash('success', 'Anda berhasil keluar dari Portal Dalaman.');
+        Session::flash('success', 'Anda berhasil keluar dari sistem.');
 
         $this->redirect($appConfig['url'] . '/dalaman/login');
     }
