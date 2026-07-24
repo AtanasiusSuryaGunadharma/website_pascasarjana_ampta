@@ -11,6 +11,10 @@
       "destination": "/dalaman/login.html"
     },
     {
+      "source": "/dalaman/login",
+      "destination": "/dalaman/login.html"
+    },
+    {
       "source": "/dalaman/login.php",
       "destination": "/dalaman/login.html"
     }

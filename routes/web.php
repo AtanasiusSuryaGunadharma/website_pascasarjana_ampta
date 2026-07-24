@@ -11,4 +11,5 @@ use App\Core\Router;
 $router->get('/', [HomeController::class, 'index']);
 $router->get('/dosen', [LecturerController::class, 'index']);
 $router->get('/dalaman', [InternalAccessController::class, 'login']);
+$router->get('/dalaman/login', [InternalAccessController::class, 'login']);
 $router->get('/dalaman/login.php', [InternalAccessController::class, 'login']);
